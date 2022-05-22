@@ -1,43 +1,45 @@
-import { useState } from 'react'
-import logo from './logo.svg'
 import './App.scss'
+import concert from './ressources/concert.jpg';
+
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div className='main'>
+      <Parallax pages={2}>
+        {/* <ParallaxLayer speed={1}>
+            <h2>Welcome to my website</h2>
+        </ParallaxLayer>
+        <ParallaxLayer offset={1} speed={0.5}>
+            <h2>Web development is fun!</h2>
+        </ParallaxLayer> */}
+
+        <ParallaxLayer
+          offset={0}
+          speed={1}
+          factor={1.2}
+          style={{
+            backgroundImage: `url(${concert})`,
+            backgroundSize: 'cover',
+          }}
+        />
+
+        <ParallaxLayer
+          offset={0}
+          speed={2.2} 
+          factor={1}
+        >
+          <h1 className='center'>Instrumentenverleih</h1>
+        </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={1}
+          speed={1} 
+          factor={1}
+        />
+
+      </Parallax>
     </div>
   )
 }
