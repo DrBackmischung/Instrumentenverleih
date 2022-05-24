@@ -2,7 +2,7 @@ import './App.scss'
 import concert from './ressources/concert.jpg';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import Menubar from './components/snippets/Menubar';
+import Menubar from './components/NavigationBar';
 import { Card, Grid } from '@mui/material';
 import NavigationBar from './components/NavigationBar';
 import FooterBar from './components/FooterBar';
@@ -13,13 +13,6 @@ function App() {
   return (
     <div className='main'>
       <Parallax pages={3}>
-        {/* <ParallaxLayer speed={1}>
-            <h2>Welcome to my website</h2>
-        </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={0.5}>
-            <h2>Web development is fun!</h2>
-        </ParallaxLayer> */}
-
         <ParallaxLayer
           offset={0}
           speed={1}
@@ -46,16 +39,20 @@ function App() {
           factor={1}
           sticky={{start: 1, end: 3}}
         >
-          <Menubar></Menubar>
+          <NavigationBar/>
         </ParallaxLayer>
 
 
+        <ParallaxLayer
+          offset={2}
+          speed={1.5} 
+          factor={1}
+        >
 
-          <NavigationBar />
 
           <Home />
 
-          <FooterBar />
+          
 
         </ParallaxLayer>
 
