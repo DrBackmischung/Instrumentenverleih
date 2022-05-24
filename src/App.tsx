@@ -34,9 +34,9 @@ function App() {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={1}
+          offset={0}
           speed={2} 
-          factor={1}
+          factor={0.1}
           sticky={{start: 1, end: 3}}
         >
           <NavigationBar/>
