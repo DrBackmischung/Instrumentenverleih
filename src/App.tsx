@@ -2,6 +2,10 @@ import './App.scss'
 import concert from './ressources/concert.jpg';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { Card, Grid } from '@mui/material';
+import NavigationBar from './components/NavigationBar';
+import FooterBar from './components/FooterBar';
+import Home from './pages/Home';
 
 function App() {
 
@@ -37,7 +41,15 @@ function App() {
           offset={1}
           speed={1} 
           factor={1}
-        />
+        >
+
+          <NavigationBar />
+
+          <Home />
+
+          <FooterBar />
+
+        </ParallaxLayer>
 
       </Parallax>
     </div>
