@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className='main'>
-      <Parallax pages={3}>
+      <Parallax pages={2}>
         <ParallaxLayer
           offset={0}
           speed={1}
@@ -25,7 +25,7 @@ function App() {
 
         <ParallaxLayer
           offset={0}
-          speed={2.2} 
+          speed={0.05} 
           factor={1}
         >
           
@@ -34,40 +34,21 @@ function App() {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={0}
-          speed={2} 
-          factor={0.1}
-          sticky={{start: 1, end: 3}}
+          offset={1}
+          speed={5} 
+          factor={1}
+          sticky={{start: 1}}
         >
           <NavigationBar/>
         </ParallaxLayer>
 
 
         <ParallaxLayer
-          offset={1.2}
+          offset={1.1}
           speed={1} 
           factor={1}
         >
-
-
           <Home />
-
-          
-
-        </ParallaxLayer>
-
-
-        <ParallaxLayer
-          offset={2.2}
-          speed={1} 
-          factor={1}
-        >
-
-
-          <Home />
-
-          
-
         </ParallaxLayer>
 
       </Parallax>
