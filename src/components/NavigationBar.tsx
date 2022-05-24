@@ -1,6 +1,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import { IconButton, Toolbar, Typography } from '@mui/material';
+import './styles/NavigationBar.scss';
 
 const pages = ['Instrumente', 'Reparatur', 'Marktplatz']
 

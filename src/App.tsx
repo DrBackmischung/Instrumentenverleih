@@ -1,5 +1,5 @@
 import './App.scss'
-import concert from './ressources/concert.jpg';
+import concert from './ressources/TitleScreen.jpg';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Menubar from './components/NavigationBar';
@@ -16,7 +16,7 @@ function App() {
         <ParallaxLayer
           offset={0}
           speed={1}
-          factor={1.2}
+          factor={1.0}
           style={{
             backgroundImage: `url(${concert})`,
             backgroundSize: 'cover',
@@ -25,7 +25,7 @@ function App() {
 
         <ParallaxLayer
           offset={0}
-          speed={2.2} 
+          speed={1} 
           factor={1}
         >
           
@@ -35,7 +35,7 @@ function App() {
 
         <ParallaxLayer
           offset={1}
-          speed={200} 
+          speed={1} 
           factor={1}
           sticky={{start: 1, end: 3}}
         >
