@@ -1,20 +1,28 @@
-import { Card, Grid } from "@mui/material";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import "./styles/Home.scss"
 
 function Home() {
 
     return (
-        <Grid container xs={12} spacing={2}>
-            <Grid item xs={4} spacing={2}>
-                <h2 className='white'>Gitarre</h2>
-                <Card>Hallo :)</Card>
+        <Container>
+            <Grid spacing={10} container xs={12} sm={12} md={12} lg={12}>
+                <Grid item xs={12} sm={6} md={4} lg={4}>
+                    <Box
+                        component="img"
+                        sx={{
+                            width: "100%"
+                        }}
+                        alt="Ausleihe"
+                        src="src/ressources/AusleiheIcon.png"
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6} md={8} lg={8}>
+                    <Box sx={{alignContent: "center", height: "100%"}}>
+                        <Typography className="menu-text">Leihen Sie hier Ihre Instrumente aus! Wählen Sie aus einer Vielzahl an verschiedenen Instrumenten, um Ihre Fähigkeiten zu verbessern. Sollten Sie eine unterstützte Musikschule besuchen, finden Sie hier die dort verwendeten Instrumente.</Typography>
+                    </Box>
+                </Grid>
             </Grid>
-            <Grid item xs={4}>
-                <h2 className='white'>Klavier</h2>
-            </Grid>
-            <Grid item xs={4}>
-                <h2 className='white'>Oboe</h2>
-            </Grid>
-        </Grid>   
+        </Container>
     )
 
 }

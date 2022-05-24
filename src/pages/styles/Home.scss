@@ -1,0 +1,8 @@
+@import "../../default.scss";
+
+.menu-text {
+    @include align-horizontal;
+    @include align-vertical;
+    text-align: center;
+    color: $white;
+}

@@ -1,5 +1,5 @@
 import './App.scss'
-import concert from './ressources/TitleScreen.jpg';
+import concert from './ressources/guitar5.jpg';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Menubar from './components/NavigationBar';
@@ -16,10 +16,11 @@ function App() {
         <ParallaxLayer
           offset={0}
           speed={1}
-          factor={1.0}
+          factor={2.3}
           style={{
             backgroundImage: `url(${concert})`,
             backgroundSize: 'cover',
+            backgroundColor: 'black'
           }}
         />
 
@@ -29,24 +30,28 @@ function App() {
           factor={1}
         >
           
-          <h1 className='center'>Instrumentenverleih</h1>
+          <h1 className='home-header'>Instrumentenverleih</h1>
           
         </ParallaxLayer>
+
+        <ParallaxLayer
+          offset={0.7}
+          speed={1} 
+          factor={1.3}
+          style={{
+            backgroundImage: 'linear-gradient(rgba(49,43,36,0), black 80%)'
+          }}
+        >
+        </ParallaxLayer>
+
 
         <ParallaxLayer
           offset={1}
           speed={1} 
           factor={1}
-          sticky={{start: 1}}
-        >
-          <NavigationBar/>
-        </ParallaxLayer>
-
-
-        <ParallaxLayer
-          offset={1.1}
-          speed={1} 
-          factor={1}
+          style={{
+            backgroundColor: 'black'
+          }}
         >
           <Home />
         </ParallaxLayer>
