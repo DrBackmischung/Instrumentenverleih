@@ -3,7 +3,10 @@ import concert from './ressources/concert.jpg';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import Menubar from './components/snippets/Menubar';
-
+import { Card, Grid } from '@mui/material';
+import NavigationBar from './components/NavigationBar';
+import FooterBar from './components/FooterBar';
+import Home from './pages/Home';
 
 function App() {
 
@@ -46,6 +49,15 @@ function App() {
           <Menubar></Menubar>
         </ParallaxLayer>
 
+
+
+          <NavigationBar />
+
+          <Home />
+
+          <FooterBar />
+
+        </ParallaxLayer>
 
       </Parallax>
     </div>
