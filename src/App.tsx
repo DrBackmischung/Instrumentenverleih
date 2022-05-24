@@ -16,7 +16,7 @@ function App() {
         <ParallaxLayer
           offset={0}
           speed={1}
-          factor={1.2}
+          factor={1}
           style={{
             backgroundImage: `url(${concert})`,
             backgroundSize: 'cover',
@@ -35,7 +35,7 @@ function App() {
 
         <ParallaxLayer
           offset={1}
-          speed={200} 
+          speed={2} 
           factor={1}
           sticky={{start: 1, end: 3}}
         >
@@ -44,8 +44,22 @@ function App() {
 
 
         <ParallaxLayer
-          offset={2}
-          speed={1.5} 
+          offset={1.2}
+          speed={1} 
+          factor={1}
+        >
+
+
+          <Home />
+
+          
+
+        </ParallaxLayer>
+
+
+        <ParallaxLayer
+          offset={2.2}
+          speed={1} 
           factor={1}
         >
 
