@@ -31,6 +31,8 @@ function App() {
         >
           
           <h1 className='home-header'>Instrumentenverleih</h1>
+          <h4 className='home-swipe'>Swipe up!</h4>
+          <h4 className='home-arrow'>^</h4>
           
         </ParallaxLayer>
 
