@@ -6,3 +6,10 @@
     text-align: center;
     color: $white;
 }
+
+.menu-picture {
+    @include align-horizontal;
+    @include align-vertical;
+    left: 25%;
+    right: 25%;
+}
