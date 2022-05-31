@@ -2,10 +2,6 @@ import './App.scss'
 import concert from './ressources/guitar5.jpg';
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import Menubar from './components/NavigationBar';
-import { Card, Grid } from '@mui/material';
-import NavigationBar from './components/NavigationBar';
-import FooterBar from './components/FooterBar';
 import Home from './pages/Home';
 
 function App() {

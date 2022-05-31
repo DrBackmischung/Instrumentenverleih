@@ -13,3 +13,13 @@
     left: 25%;
     right: 25%;
 }
+
+.menu {
+    @include align-vertical;
+}
+
+.menu-box {
+    height: 100%;
+    width: 100%;
+    align-content: center;
+}
