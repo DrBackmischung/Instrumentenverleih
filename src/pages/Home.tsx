@@ -36,7 +36,7 @@ function Home() {
                             alignSelf: "center"
                         }}
                         alt="Ausleihe"
-                        src="src/ressources/AusleiheIcon.png"
+                        src="src/ressources/MarktplatzIcon.png"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 5, sm: 5, md: 5, lg:5}}>
@@ -47,7 +47,7 @@ function Home() {
                             width: "50%"
                         }}
                         alt="Ausleihe"
-                        src="src/ressources/AusleiheIcon.png"
+                        src="src/ressources/ServiceIcon.png"
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={8} lg={8} order={{xs: 6, sm: 6, md: 6, lg:6}}>
