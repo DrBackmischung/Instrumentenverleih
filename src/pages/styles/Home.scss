@@ -1,0 +1,25 @@
+@import "../../default.scss";
+
+.menu-text {
+    @include align-horizontal;
+    @include align-vertical;
+    text-align: center;
+    color: $white;
+}
+
+.menu-picture {
+    @include align-horizontal;
+    @include align-vertical;
+    left: 25%;
+    right: 25%;
+}
+
+.menu {
+    @include align-vertical;
+}
+
+.menu-box {
+    height: 100%;
+    width: 100%;
+    align-content: center;
+}
