@@ -15,6 +15,9 @@ function Home() {
                         }}
                         alt="Ausleihe"
                         src="src/ressources/AusleiheIcon.png"
+                        onClick={() => {
+                            window.alert("Ausleihe");
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={8} lg={8} order={{xs: 2, sm: 2, md: 2, lg:2}}>
@@ -37,6 +40,9 @@ function Home() {
                         }}
                         alt="Ausleihe"
                         src="src/ressources/MarktplatzIcon.png"
+                        onClick={() => {
+                            window.alert("Marktplatz");
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 5, sm: 5, md: 5, lg:5}}>
@@ -48,6 +54,9 @@ function Home() {
                         }}
                         alt="Ausleihe"
                         src="src/ressources/ServiceIcon.png"
+                        onClick={() => {
+                            window.alert("Serviceportal");
+                        }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={8} lg={8} order={{xs: 6, sm: 6, md: 6, lg:6}}>
