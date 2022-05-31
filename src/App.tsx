@@ -6,7 +6,6 @@ import FooterBar from './components/FooterBar';
 import Ausleihe from './pages/Ausleihe';
 
 function App() {
-
   return (
     <>
       <Routes>
