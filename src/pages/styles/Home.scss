@@ -1,25 +1,36 @@
-@import "../../default.scss";
-
-.menu-text {
-    @include align-horizontal;
-    @include align-vertical;
+.main {
+    background-color: rgba(14,20,32,255);
+    overflow: hidden;
+}
+  
+@mixin home-text {
     text-align: center;
-    color: $white;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: white;
 }
 
-.menu-picture {
-    @include align-horizontal;
-    @include align-vertical;
-    left: 25%;
-    right: 25%;
+.home-header {
+    @include home-text();
+    top: 50%;
+    font-size: 80px;
 }
 
-.menu {
-    @include align-vertical;
+.home-swipe {
+    @include home-text();
+    top: 90%;
+    font-size: 20px;
 }
 
-.menu-box {
-    height: 100%;
-    width: 100%;
-    align-content: center;
+.home-arrow {
+    @include home-text();
+    top: 85%;
+    font-size: 60px;
+}
+
+.white {
+    color: white;
+    text-align: center;
 }

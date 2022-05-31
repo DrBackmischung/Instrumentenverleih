@@ -1,71 +1,61 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "./styles/Home.scss"
+import concert from '../ressources/guitar5.jpg';
+import HomeContent from "../components/HomeContent";
 
 function Home() {
 
     return (
-        <Container className="menu">
-            <Grid spacing={5} container xs={12} sm={12} md={12} lg={12}>
-                <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 1, sm: 1, md: 1, lg:1}}>
-                    <Box
-                        className="menu-picture"
-                        component="img"
-                        sx={{
-                            width: "50%"
-                        }}
-                        alt="Ausleihe"
-                        src="src/ressources/AusleiheIcon.png"
-                        onClick={() => {
-                            window.alert("Ausleihe");
-                        }}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={8} lg={8} order={{xs: 2, sm: 2, md: 2, lg:2}}>
-                    <Box className="menu-box">
-                        <Typography className="menu-text">Leihen Sie hier Ihre Instrumente aus! Wählen Sie aus einer Vielzahl an verschiedenen Instrumenten, um Ihre Fähigkeiten zu verbessern. Sollten Sie eine unterstützte Musikschule besuchen, finden Sie hier die dort verwendeten Instrumente.</Typography>
-                    </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} md={8} lg={8} order={{xs: 4, sm: 3, md: 3, lg:3}}>
-                    <Box className="menu-box">
-                        <Typography className="menu-text">Wollen Sie ein Instrument kaufen oder ein altes von Ihnen verkaufen? Schauen Sie sich auf dem Marktplatz um - oder stellen Sie Ihr eigenes Angebot ein!</Typography>
-                    </Box>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 3, sm: 4, md: 4, lg:4}}>
-                    <Box
-                        className="menu-picture"
-                        component="img"
-                        sx={{
-                            width: "50%",
-                            alignSelf: "center"
-                        }}
-                        alt="Ausleihe"
-                        src="src/ressources/MarktplatzIcon.png"
-                        onClick={() => {
-                            window.alert("Marktplatz");
-                        }}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 5, sm: 5, md: 5, lg:5}}>
-                    <Box
-                        className="menu-picture"
-                        component="img"
-                        sx={{
-                            width: "50%"
-                        }}
-                        alt="Ausleihe"
-                        src="src/ressources/ServiceIcon.png"
-                        onClick={() => {
-                            window.alert("Serviceportal");
-                        }}
-                    />
-                </Grid>
-                <Grid item xs={12} sm={6} md={8} lg={8} order={{xs: 6, sm: 6, md: 6, lg:6}}>
-                    <Box className="menu-box">
-                        <Typography className="menu-text">Brauchen Sie eine Reperatur oder muss Ihr Instrument gestimmt werden? Wir bieten Ihnen dafür den geeigneten Service an! Schauen Sie sich doch in unserem Service-Portal um, damit Ihr Anliegen gehört werden kann.</Typography>
-                    </Box>
-                </Grid>
-            </Grid>
-        </Container>
+        <div className='main'>
+          <Parallax pages={2}>
+            <ParallaxLayer
+              offset={0}
+              speed={1}
+              factor={2.3}
+              style={{
+                backgroundImage: `url(${concert})`,
+                backgroundSize: 'cover',
+                backgroundColor: 'black'
+              }}
+            />
+    
+            <ParallaxLayer
+              offset={0}
+              speed={0.05} 
+              factor={1}
+            >
+              
+              <h1 className='home-header'>Instrumentenverleih</h1>
+              <h4 className='home-swipe'>Swipe up!</h4>
+              <h4 className='home-arrow'>^</h4>
+              
+            </ParallaxLayer>
+    
+            <ParallaxLayer
+              offset={0.7}
+              speed={1} 
+              factor={1.3}
+              style={{
+                backgroundImage: 'linear-gradient(rgba(49,43,36,0), black 80%)'
+              }}
+            >
+            </ParallaxLayer>
+    
+    
+            <ParallaxLayer
+              offset={1}
+              speed={0.6} 
+              factor={1}
+              style={{
+                backgroundColor: 'black'
+              }}
+            >
+              <HomeContent />
+            </ParallaxLayer>
+    
+          </Parallax>
+        </div>
     )
 
 }
