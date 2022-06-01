@@ -14,9 +14,6 @@ function HomeContent() {
                     <Box
                         className="menu-picture"
                         component="img"
-                        sx={{
-                            width: "50%"
-                        }}
                         alt="Ausleihe"
                         src="src/ressources/AusleiheIcon.png"
                         onClick={() => {
@@ -38,10 +35,6 @@ function HomeContent() {
                     <Box
                         className="menu-picture"
                         component="img"
-                        sx={{
-                            width: "50%",
-                            alignSelf: "center"
-                        }}
                         alt="Ausleihe"
                         src="src/ressources/MarktplatzIcon.png"
                         onClick={() => {
@@ -53,9 +46,6 @@ function HomeContent() {
                     <Box
                         className="menu-picture"
                         component="img"
-                        sx={{
-                            width: "50%"
-                        }}
                         alt="Ausleihe"
                         src="src/ressources/ServiceIcon.png"
                         onClick={() => {
