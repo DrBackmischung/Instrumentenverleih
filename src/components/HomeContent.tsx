@@ -1,7 +1,11 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/HomeContent.scss"
 
 function HomeContent() {
+
+    const navigate = useNavigate();
 
     return (
         <Container className="menu">
@@ -16,7 +20,7 @@ function HomeContent() {
                         alt="Ausleihe"
                         src="src/ressources/AusleiheIcon.png"
                         onClick={() => {
-                            window.alert("Ausleihe");
+                            navigate('/ausleihe', {replace: false});
                         }}
                     />
                 </Grid>
@@ -41,7 +45,7 @@ function HomeContent() {
                         alt="Ausleihe"
                         src="src/ressources/MarktplatzIcon.png"
                         onClick={() => {
-                            window.alert("Marktplatz");
+                            navigate('/marktplatz', {replace: false});
                         }}
                     />
                 </Grid>
@@ -55,7 +59,7 @@ function HomeContent() {
                         alt="Ausleihe"
                         src="src/ressources/ServiceIcon.png"
                         onClick={() => {
-                            window.alert("Serviceportal");
+                            navigate('/ausleihe', {replace: false});
                         }}
                     />
                 </Grid>
