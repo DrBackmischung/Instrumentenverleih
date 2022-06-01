@@ -13,6 +13,13 @@ function App() {
           <Route path="/ausleihe" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/marktplatz" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/serviceportal" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/ausleihe/egitarre" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/ausleihe/verstaerker" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/ausleihe/orgel" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/ausleihe/schlagzeug" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/ausleihe/zubehoer" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/ausleihe/sonstiges" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/marktplatz/:id" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
       </Routes>
     </>
   )
