@@ -1,0 +1,27 @@
+@import "../../default.scss";
+
+.impressum {
+    position: relative;
+    align-content: center;
+    align-items: center;
+}
+
+.impressum-text {
+    @include align-horizontal;
+    position: relative;
+    text-align: center;
+    color: grey;
+}
+
+a {
+    color: grey;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: darkgray
+}
