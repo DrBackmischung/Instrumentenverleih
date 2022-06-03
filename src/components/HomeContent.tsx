@@ -1,7 +1,11 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/HomeContent.scss"
 
 function HomeContent() {
+
+    const navigate = useNavigate();
 
     return (
         <Container className="menu">
@@ -10,13 +14,10 @@ function HomeContent() {
                     <Box
                         className="menu-picture"
                         component="img"
-                        sx={{
-                            width: "50%"
-                        }}
                         alt="Ausleihe"
                         src="src/ressources/AusleiheIcon.png"
                         onClick={() => {
-                            window.alert("Ausleihe");
+                            navigate('/ausleihe', {replace: false});
                         }}
                     />
                 </Grid>
@@ -34,14 +35,10 @@ function HomeContent() {
                     <Box
                         className="menu-picture"
                         component="img"
-                        sx={{
-                            width: "50%",
-                            alignSelf: "center"
-                        }}
                         alt="Ausleihe"
                         src="src/ressources/MarktplatzIcon.png"
                         onClick={() => {
-                            window.alert("Marktplatz");
+                            navigate('/marktplatz', {replace: false});
                         }}
                     />
                 </Grid>
@@ -49,13 +46,10 @@ function HomeContent() {
                     <Box
                         className="menu-picture"
                         component="img"
-                        sx={{
-                            width: "50%"
-                        }}
                         alt="Ausleihe"
                         src="src/ressources/ServiceIcon.png"
                         onClick={() => {
-                            window.alert("Serviceportal");
+                            navigate('/ausleihe', {replace: false});
                         }}
                     />
                 </Grid>

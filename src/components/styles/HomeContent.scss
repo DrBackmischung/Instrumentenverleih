@@ -12,6 +12,12 @@
     @include align-vertical;
     left: 25%;
     right: 25%;
+    width: 65%;
+    opacity: 1;
+}
+
+.menu-picture:hover {
+    opacity: 0.6
 }
 
 .menu {

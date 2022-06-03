@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import "./styles/Home.scss"
+import "./styles/Ausleihe.scss"
 import concert from '../ressources/guitar5.jpg';
 import HomeContent from "../components/HomeContent";
 
