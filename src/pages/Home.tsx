@@ -7,7 +7,7 @@ import HomeContent from "../components/HomeContent";
 function Home() {
 
     return (
-        <div className='main'>
+        <div className='main' aria-label="Heavy-Metal-Instrumentenverleih Homepage, Drück Tab für die Menüauswahl">
           <Parallax pages={2}>
             <ParallaxLayer
               offset={0}
