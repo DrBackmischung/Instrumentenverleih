@@ -16,7 +16,7 @@ function NavigationBar() {
     return(
         <AppBar
           style={{ backgroundColor: "rgba(5,10,15,255)", opacity: 1 }}
-          position="sticky"
+          position="static"
         >
           <Container>
             <Toolbar>

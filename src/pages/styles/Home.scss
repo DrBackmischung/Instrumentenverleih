@@ -1,6 +1,6 @@
 .main {
     background-color: rgba(14,20,32,255);
-    overflow: hidden;
+    //overflow: hidden;
 }
   
 @mixin home-text {
@@ -11,6 +11,8 @@
     margin: 0;
     color: white;
 }
+
+
 
 .home-header {
     @include home-text();

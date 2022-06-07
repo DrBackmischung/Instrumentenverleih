@@ -4,6 +4,7 @@ import NavigationBar from './components/NavigationBar';
 import { Route, Router, Routes } from 'react-router-dom';
 import FooterBar from './components/FooterBar';
 import Ausleihe from './pages/Ausleihe';
+import VerstaerkerDetail from './pages/VerstaerkerDetail';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/ausleihe" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/marktplatz" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/serviceportal" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+          <Route path="/detailVerstaerker" element={<><NavigationBar/><VerstaerkerDetail /></>} />
           <Route path="/ausleihe/egitarre" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/ausleihe/verstaerker" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/ausleihe/orgel" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
