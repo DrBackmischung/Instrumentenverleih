@@ -16,7 +16,7 @@ function Home() {
               style={{
                 backgroundImage: `url(${concert})`,
                 backgroundSize: 'cover',
-                backgroundColor: 'black'
+                backgroundColor: 'rgba(14,20,32,255)'
               }}
             />
     
@@ -37,7 +37,7 @@ function Home() {
               speed={1} 
               factor={1.3}
               style={{
-                backgroundImage: 'linear-gradient(rgba(49,43,36,0), black 80%)'
+                backgroundImage: 'linear-gradient(rgba(49,43,36,0), rgba(14,20,32,255) 80%)'
               }}
             >
             </ParallaxLayer>
@@ -48,7 +48,7 @@ function Home() {
               speed={0.6} 
               factor={1}
               style={{
-                backgroundColor: 'black'
+                backgroundColor: 'rgba(14,20,32,255)'
               }}
             >
               <HomeContent />
