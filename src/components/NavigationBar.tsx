@@ -31,7 +31,7 @@ function NavigationBar() {
                   {pages.map((page) => (
                     <Button
                       className='button'
-                      style={{ backgroundColor: "rgba(10, 40, 40, 0.3)", opacity: 0.95, color: "#959595" }}
+                      style={{ backgroundColor: "rgba(10, 40, 40, 0.3)", opacity: 0.95, color: "white" }}
                       key={page.name}
                       sx={{ my: 2, color: "black", display: "block" }}
                       variant="contained"

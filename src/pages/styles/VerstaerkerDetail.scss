@@ -1,6 +1,13 @@
-.main{
-    background-color: rgba(6, 0, 8, 0.76);
+@import "../../default.scss";
 
+.main{
+
+}
+
+.menu-picture {
+    position: relative;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 .parallaxHeader {
