@@ -8,6 +8,10 @@ import Schlagzeug from '../ressources/Schlagzeug.svg'
 import MainDrum from '../ressources/MainDrum.svg';
 import DoppelBecken from '../ressources/DoppelBecken.svg';
 
+import example from '../ressources/105074_mp3-256.mp3';
+
+import ReactAudioPlayer from "react-audio-player";
+
 
 
 function SchlagzeugDetail(){
@@ -65,9 +69,34 @@ function SchlagzeugDetail(){
 
                 </Grid>
 
-                <Grid item xs={12} sm={12} md={12} lg={8} order={{xs:1, sm:1, md:1, lg: 1}} >
-                    <Typography variant="h3" className='parallaxHeader' >Yamaha Stage Custom Hip</Typography>
-                    <Typography className='parallaxText'>Du gibst den Takt vor! Dafür brauchst du natürlich auch das richtige Werkzeug! Hierfür empfehlen wir unser Standard Yamaha Schlagzeug, deinem treuen Begleiter auf allen Bühnen!</Typography>
+                <Grid item xs={12} sm={12} md={12} lg={8} order={{xs:1, sm:1, md:1, lg: 1}}  >
+
+                    <Grid container xs={12} sm={12} md={12} lg={12}>
+                        <Grid item xs={12} sm={12} md={12} lg={12} sx={{mt: (checkForDevice() ? 0 : 25)}}>
+                            <Typography variant="h3" className='parallaxHeader' >Yamaha Stage Custom Hip</Typography>
+                            <Typography className='parallaxText'>Du gibst den Takt vor! Dafür brauchst du natürlich auch das richtige Werkzeug! Hierfür empfehlen wir unser Standard Yamaha Schlagzeug, deinem treuen Begleiter auf allen Bühnen!</Typography>
+                        </Grid>
+
+                        <Grid item xs={12} sm={12} md={12} lg={12} sx={{mt: (checkForDevice() ? 5 : 5), ml: (checkForDevice() ? 0 : 14)}} >
+                            <Grid container xs={12} sm={12} md={12} lg={12}>
+                                <Grid item xs={12} sm={12} md={12} lg={2} sx={{mt: (checkForDevice() ? 5 : 3)}}>
+                                    <Typography variant="h5" className='parallaxHeader'>Sounbeispiel:</Typography>
+                                </Grid>
+
+                                <Grid item xs={12} sm={12} md={12} lg={10}>
+                                    <Box sx={{mt: (checkForDevice() ? 5 : 5), ml: (checkForDevice() ? 5 : 0)}}>
+                                        <ReactAudioPlayer src={example} controls />
+                                    </Box>
+                                </Grid>
+                            </Grid>
+                            
+                            
+                            
+                        </Grid>
+                    </Grid>
+
+
+                    
                 </Grid>
 
                 <Grid item xs={12} sm={12} md={12} lg={12} order={{xs:3, sm:3, md:3, lg: 3}} sx={{backgroundImage: `url(${Uebersicht})`, backgroundSize: "cover"}} >

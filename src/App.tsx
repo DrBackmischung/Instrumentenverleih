@@ -6,6 +6,7 @@ import FooterBar from './components/FooterBar';
 import Ausleihe from './pages/Ausleihe';
 import VerstaerkerDetail from './pages/VerstaerkerDetail';
 import SchlagzeugDetail from './pages/SchlagzeugDetail';
+import SamplePlayer from './components/SamplePlayer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/ausleihe/zubehoer" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/ausleihe/sonstiges" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/marktplatz/:id" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+
       </Routes>
     </>
   )
