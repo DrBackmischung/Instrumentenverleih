@@ -7,19 +7,25 @@ import "./styles/HomeContent.scss"
 function HomeContent() {
 
     const navigate = useNavigate();
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <Container className="menu">
             <Grid spacing={5} container xs={12} sm={12} md={12} lg={12}>
                 <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 1, sm: 1, md: 1, lg:1}}>
                     <Box
+                        tabIndex={1}
                         className="menu-picture"
                         component="img"
                         alt="Ausleihe"
                         src="src/ressources/AusleiheIcon.png"
                         onClick={() => {
                             navigate('/ausleihe', {replace: false});
+                        }}
+                        onKeyDown={(e: any) => {
+                            if(e.key === "Enter") {
+                                navigate('/ausleihe', {replace: false});
+                            }
                         }}
                     />
                 </Grid>
@@ -35,23 +41,35 @@ function HomeContent() {
                 </Grid>
                 <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 3, sm: 4, md: 4, lg:4}}>
                     <Box
+                        tabIndex={2}
                         className="menu-picture"
                         component="img"
-                        alt="Ausleihe"
+                        alt="Marktplatz"
                         src="src/ressources/MarktplatzIcon.png"
                         onClick={() => {
                             navigate('/marktplatz', {replace: false});
+                        }}
+                        onKeyDown={(e: any) => {
+                            if(e.key === "Enter") {
+                                navigate('/marktplatz', {replace: false});
+                            }
                         }}
                     />
                 </Grid>
                 <Grid item xs={12} sm={6} md={4} lg={4} order={{xs: 5, sm: 5, md: 5, lg:5}}>
                     <Box
+                        tabIndex={3}
                         className="menu-picture"
                         component="img"
-                        alt="Ausleihe"
+                        alt="Serviceportal"
                         src="src/ressources/ServiceIcon.png"
                         onClick={() => {
-                            navigate('/ausleihe', {replace: false});
+                            navigate('/serviceportal', {replace: false});
+                        }}
+                        onKeyDown={(e: any) => {
+                            if(e.key === "Enter") {
+                                navigate('/serviceportal', {replace: false});
+                            }
                         }}
                     />
                 </Grid>
