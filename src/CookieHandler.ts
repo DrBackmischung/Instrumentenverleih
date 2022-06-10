@@ -1,10 +1,3 @@
-/*
-HOW TO USE: 
-1) import { setCookie, getCookie, isCookieSet } from "(...)/CookieHandler"; 
-2) Set Cookies. The cookies will be remembered by the local browser for X days => setCookie(cookieName: String, cookieValue: String, expireDays: number)
-3) Use cookies. Check for it with getCookie(cookieName: String) returns boolean; getCookie(cookieName:String) returns value from cookie.
-*/
-
 export const setCookie = (cookieName: string, cookieValue: string, expireDays: number) => {
     const expireDate: Date = new Date();
     expireDate.setTime(expireDate.getTime() + (expireDays*24*60*60*1000));
