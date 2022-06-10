@@ -1,6 +1,8 @@
 # Instrumentenverleih
 Projekt für Vorlesung EVS - Webentwicklung
 
+## Unique Selling Points
+
 - I18N
 - Soundbeispiele
 - Parallax
