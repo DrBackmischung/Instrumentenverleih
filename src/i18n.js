@@ -16,6 +16,12 @@ i18n
           home_1aria: "Rental. Press Enter to rent an instrument.",
           home_2aria: "Marketplace. Press Enter to visit the marketplace.",
           home_3aria: "Service Portal. Press Enter to visit the service portal.",
+          menu_home: "Home",
+          menu_rent: "Rental",
+          menu_market: "Marketplace",
+          menu_service: "Service Portal",
+          footer_contact: "Contact",
+          footer_impressum: "Impressum",
         }
       },
       de: {
@@ -26,7 +32,12 @@ i18n
           home_1aria: "Ausleihe. Drücken Sie Enter, um ein Instrument auszuleihen.",
           home_2aria: "Marktplatz. Drücken Sie Enter, um den Markplatz zu betreten.",
           home_3aria: "Serviceportal. Drücken Sie Enter, um das Serviceportal zu betreten.",
-
+          menu_home: "Home",
+          menu_rent: "Ausleihe",
+          menu_market: "Marktplatz",
+          menu_service: "Serviceportal",
+          footer_contact: "Kontakt",
+          footer_impressum: "Impressum",
         }
       }
     },

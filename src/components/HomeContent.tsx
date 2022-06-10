@@ -7,7 +7,7 @@ import "./styles/HomeContent.scss"
 function HomeContent() {
 
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
         <Container className="menu">
@@ -79,6 +79,7 @@ function HomeContent() {
                     </Box>
                 </Grid>
             </Grid>
+            <a className="impressum" onClick={() => {i18n.changeLanguage("de")}}>DE</a> | <a className="impressum" onClick={() => {i18n.changeLanguage("en")}}>EN</a>
         </Container>
     )
 

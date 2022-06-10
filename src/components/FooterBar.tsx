@@ -1,7 +1,10 @@
 import { Box } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import "./styles/FooterBar.scss"
 
 function FooterBar() {
+
+    const { t, i18n } = useTranslation();
 
     return (
         <div className="impressum">
@@ -14,7 +17,10 @@ function FooterBar() {
                     }}
                 >
                     <div>
-                        <a href="www.google.de" className="impressum">Impressum</a> | <a href="www.google.de" className="impressum">Kontakt</a> | <a href="www.google.de" className="impressum">Facebook</a> | <a href="www.google.de" className="impressum">Instagram</a>
+                        <a href="www.google.de" className="impressum">{t("footer_impressum")}</a> | <a href="www.google.de" className="impressum">{t("footer_contact")}</a> | <a href="www.google.de" className="impressum">Facebook</a> | <a href="www.google.de" className="impressum">Instagram</a>
+                    </div>
+                    <div>
+                        <a className="impressum" onClick={() => {i18n.changeLanguage("de")}}>DE</a> | <a className="impressum" onClick={() => {i18n.changeLanguage("en")}}>EN</a>
                     </div>
                 </Box>
             </p>
