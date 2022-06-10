@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<><Home /></>} />
           <Route path="/ausleihe" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/marktplatz" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
           <Route path="/serviceportal" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
