@@ -55,7 +55,7 @@ function VerstaerkerDetail(){
 
             <Grid container xs={12} sm={12} md={12} lg={12} spacing={0} rowSpacing={0}>
                 
-                <Grid item xs={12} sm={12} md={12} lg={4} order={{xs:2, sm:2, md:2, lg: 2}}>
+                <Grid item xs={12} sm={12} md={12} lg={4} order={{xs:2, sm:2, md:2, lg: 2}} sx={{mt: (checkForDevice() ? 10 : 0)}}>
                     
 
                     <picture>

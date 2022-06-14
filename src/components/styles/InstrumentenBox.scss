@@ -1,0 +1,33 @@
+.boxTitleText{
+    color: white;
+    align-items: center;
+}
+
+.boxTitle{
+    align-items: center;
+}
+
+.boxPicture{
+    width: 100%;
+    max-width: 300px; 
+    min-width: 300px;
+    height: 100%;
+    max-height: 200px;
+    min-height: 200px;
+    align-content: center;
+}
+
+.boxWrapper{
+    background-color: #242321c4;
+
+    max-height: 600px;
+    min-height: 150px;
+    padding-bottom: 0.2%;
+    padding-top: 4;
+    border-radius: 2%;
+}
+
+.boxWrapper:hover{
+    background-color: #504d49c4;
+    transform: scale(1.1);
+}

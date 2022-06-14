@@ -6,7 +6,6 @@ import FooterBar from './components/FooterBar';
 import Ausleihe from './pages/Ausleihe';
 import VerstaerkerDetail from './pages/VerstaerkerDetail';
 import SchlagzeugDetail from './pages/SchlagzeugDetail';
-import SamplePlayer from './components/SamplePlayer';
 
 function App() {
   return (
