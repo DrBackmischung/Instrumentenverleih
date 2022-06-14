@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import './styles/InstrumentenBox.scss';
 
 function InstrumentenBox(props: any){
-    const {picture, title, subtitle, link} = props;
+    const {picture, title, subtitle, link, isMobile} = props;
 
     const navigate = useNavigate();
 
@@ -18,9 +18,10 @@ function InstrumentenBox(props: any){
             }} 
         >
 
-            <Grid container direction='column' justifyContent='center' alignItems='center'>
 
-                <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Grid container justifyContent='center'>
+
+                <Grid item xs={12} sm={12} md={12} lg={3}>
 
                     <picture>
 
@@ -31,23 +32,16 @@ function InstrumentenBox(props: any){
 
                 </Grid>
 
-                <Grid item xs={12} sm={12} md={12} lg={12}>
+                <Grid item xs={12} sm={12} md={12} lg={9}>
 
                     <Box justifyContent="center" alignItems="center">
-                        <Typography align="center" variant='h3' className='boxTitleText'>
+                        <Typography align="left" variant='h4' className='boxTitleText' sx={{mt: (isMobile ? 0 : 8), ml: (isMobile? 2 : 0)}}>
                             {title}
                         </Typography>
+                        <Typography align="left" variant="h6" className='boxTitleText' sx={{mt: (isMobile ? 0 : 0), ml: (isMobile? 2 : 0)}} >{subtitle}</Typography>
 
                     </Box>
                     
-                    
-
-                </Grid>
-
-                <Grid item xs={12} sm={12} md={12} lg={12} >
-                    
-                    <Typography align="center" variant="h5" className='boxTitleText'>{subtitle}</Typography>
-
                 </Grid>
 
             </Grid>
