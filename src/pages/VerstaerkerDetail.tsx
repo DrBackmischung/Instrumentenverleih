@@ -77,7 +77,7 @@ function VerstaerkerDetail(){
                         <Typography variant="h4">Darum empfehlen wir dieses Produkt</Typography>
                         <Typography>Dieser Verstärker ist der perfekte Begleiter für den Anfänger bis hin zum Profi. Der Anfänger kann in diesem Verstärker schnell anfangen, während der Profi sich alle Töne einstellen kann, so weit es benötigt ist. Auch auf Bühnen kann dieser Verstärker glänzen!</Typography>
                         <Typography variant="h4">Die Vorteile im Überblick</Typography>
-                        <ul >
+                        <ul>
                             <li>Höhen, Mitten und Bass einstellbar: finde deinen perfekten Sound!</li>
                             <li>2x 12" Treiber: Ein satter Sound</li>
                             <li>50 Watt: Kann sehr laut werden</li>
