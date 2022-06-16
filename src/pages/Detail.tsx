@@ -1,8 +1,10 @@
 import { AppBar, Box, Button, Grid, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import DetailAdvSec from "../components/DetailAdvSec";
 import './styles/Detail.scss';
+import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
 
 const instrumentsData = {
     title: "Marshall MG50GFX",
@@ -78,6 +80,36 @@ const instrumentsData1 ={
 }
 
 function Detail(){
+
+    // Instrument aus der URL auslesen
+    const [instrument, setInstrument] = useState();
+    const apiUrlAll = `localhost:8080/instrument/${instrument}`;
+    const { state }: any = useLocation();
+
+    const { isLoading, data, refetch, isError, dataUpdatedAt } = useQuery(
+        "instrument",
+        () => fetch(apiUrlAll).then((res) => res.json()),
+        {
+          refetchOnWindowFocus: false,
+          enabled: false,
+        }
+      );
+
+    useEffect(() => {
+        setInstrument(state.movieId);
+    }, [state?.instrument]);
+    useEffect(() => {
+        if (instrument) {
+            refetch();
+        }
+    }, [instrument]);
+
+    // Ende des Bausteins
+
+
+
+
+
 
     var counter = 0;
     var switcher = false;

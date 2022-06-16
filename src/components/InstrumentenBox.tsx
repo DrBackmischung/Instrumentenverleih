@@ -14,6 +14,8 @@ function InstrumentenBox(props: any){
 
     const navigate = useNavigate();
 
+    // Man muss dann bei navigate sagen "navigate('/verleih', state: {link})"
+
     return(
 
         <Box 
