@@ -6,7 +6,7 @@ Projekt für Vorlesung EVS - Webentwicklung
 - Mehrsprachigkeit (i18n & l10n)
 - Soundbeispiele
 - Parallax
-- E2E Tests
+- E2E Tests / Cypress
 - Backend
 - Backend Tests
 - Barrierefreiheit (a11y)
