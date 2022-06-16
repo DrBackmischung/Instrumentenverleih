@@ -3,17 +3,30 @@ import { Box } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import './styles/InstrumentenBox.scss';
 
+const detail = {
+    title: "Test",
+    category: "Schlaginstrument",
+    mainText:  "Dein Sound hat einfach nicht den Wums, welchen du haben möchtest? Deine Sounds zerfetzen nicht deine Ohren? Dann hast du einach den falschen Verstärker! Leihe dir unseren Marshall Verstärker der Oberklasse!"
+};
+
 function InstrumentenBox(props: any){
     const {picture, title, subtitle, link, isMobile} = props;
 
     const navigate = useNavigate();
+
+    // Man muss dann bei navigate sagen "navigate('/verleih', state: {link})"
 
     return(
 
         <Box 
             className='boxWrapper'
             onClick={() => {
-                navigate(link, {replace: false});
+                navigate(link, {
+                    replace: false,
+                    state: { detail }
+                });
+
+                console.log(detail);
             
             }} 
         >
