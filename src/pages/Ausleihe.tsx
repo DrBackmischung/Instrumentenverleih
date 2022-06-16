@@ -4,7 +4,7 @@ import "./styles/Ausleihe.scss"
 import concert from '../ressources/guitar5.jpg';
 import HomeContent from "../components/HomeContent";
 import InstrumentenBox from "../components/InstrumentenBox";
-import InstrumentsTable from "../components/instrumentsTable";
+import InstrumentsTable from "../components/InstrumentsTable";
 import Schlagzeug from '../ressources/Schlagzeug.svg'
 import Verstaerker from '../ressources/Verstärker.svg';
 import { useState } from "react";
