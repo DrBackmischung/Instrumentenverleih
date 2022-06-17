@@ -7,10 +7,12 @@ import Ausleihe from './pages/Ausleihe';
 import VerstaerkerDetail from './pages/VerstaerkerDetail';
 import SchlagzeugDetail from './pages/SchlagzeugDetail';
 import Detail from './pages/Detail';
+import CookiesNotification from './components/CookiesNotification';
 
 function App() {
   return (
     <>
+    <CookiesNotification/>
       <Routes>
           <Route path="/" element={<><Home /></>} />
           <Route path="/ausleihe" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
