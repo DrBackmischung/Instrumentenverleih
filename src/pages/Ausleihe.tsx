@@ -1,13 +1,8 @@
 import { Autocomplete, Box, Container, Grid, TextField, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import "./styles/Ausleihe.scss"
-import concert from '../ressources/guitar5.jpg';
-import HomeContent from "../components/HomeContent";
-import InstrumentenBox from "../components/InstrumentenBox";
 import InstrumentsTable from "../components/InstrumentsTable";
-import Schlagzeug from '../ressources/Schlagzeug.svg'
-import Verstaerker from '../ressources/Verstärker.svg';
 import { useState } from "react";
+import { useQuery } from "react-query";
 
 var mockData = [
     {
@@ -27,6 +22,13 @@ var mockData = [
 
 
 function Ausleihe() {
+
+    const apiUrlAll = `http://localhost:8080/instrument/getAll`;
+
+
+    const {isLoading, isError, data: instrumentsData} : any = useQuery("Instruments", () =>
+        fetch(apiUrlAll).then((res) => res.json())
+    );
 
     const [filter, setFilter] = useState("");
 
@@ -100,7 +102,7 @@ function Ausleihe() {
                 
             </Toolbar>
 
-            <InstrumentsTable instrumentsData={mockData} filter={filter} isMobile={checkForDevice()} id="table"/>
+            <InstrumentsTable instrumentsData={instrumentsData} filter={filter} isMobile={checkForDevice()} id="table"/>
 
         </div>
     )
