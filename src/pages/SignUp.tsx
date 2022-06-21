@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {Avatar, Box, Button, Container, Grid, IconButton, Link, TextField, Typography} from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {useNavigate} from "react-router-dom";
-import "./UserRegistrationPage.css";
+import "./styles/SignUp.scss";
 import { useForm, Controller } from "react-hook-form";
 import LoadingAnimation from "../components/LoadingAnimation";
 import { setCookie } from "../CookieHandler";

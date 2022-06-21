@@ -7,6 +7,8 @@ import Ausleihe from './pages/Ausleihe';
 import Detail from './pages/Detail';
 import CookiesNotification from './components/CookiesNotification';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 
 const queryClient = new QueryClient();
 
@@ -17,6 +19,8 @@ function App() {
       <CookiesNotification/>
         <Routes>
             <Route path="/" element={<><Home /></>} />
+            <Route path="/login" element={<><NavigationBar/><SignIn /><FooterBar/></>} />
+            <Route path="/registration" element={<><NavigationBar/><SignUp /><FooterBar/></>} />
             <Route path="/ausleihe" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
             <Route path="/ausleihe/:instrumentID" element={<><NavigationBar/><Detail /><FooterBar/></>} />
             <Route path="/marktplatz" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
