@@ -24,8 +24,8 @@ import md5 from "md5";
 
 const theme = createTheme();
 
-export default function SignIn(props: any) {
-    const {setUser} = props;
+export default function SignIn() {
+
     const [userName, setUserName] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const apiUlr = `http://localhost:8080/login`;
@@ -68,7 +68,6 @@ export default function SignIn(props: any) {
             const data: any = await response.json();
             setError({isError: false, msg: "No error"});
             setCookie("userId", data.id, 7);
-            setUser();
             redirectHome = true;
         }
         setIsLoading(false);
