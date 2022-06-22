@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import DetailAdvSec from "../components/DetailAdvSec";
 import './styles/Detail.scss';
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getCookie } from "../CookieHandler";
 
 function Detail(){
+
+    const navigate = useNavigate();
 
     console.log("Detail!")
 
@@ -91,7 +93,12 @@ function Detail(){
                              Ausleihen
                          </Button>
                          :
-                         <Button className="rentBarButton" sx={{background: 'rgba(10, 10, 10, 0.7)', color:'white', borderRadius: 4 }}>
+                         <Button
+                            className="rentBarButton"
+                            sx={{background: 'rgba(10, 10, 10, 0.7)', color:'white', borderRadius: 4 }}
+                            onClick={() => {
+                                navigate("/login");
+                            }} >
                              Zum Ausleihen einloggen
                          </Button>
                          }
