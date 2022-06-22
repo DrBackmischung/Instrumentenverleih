@@ -6,10 +6,21 @@ import './styles/Detail.scss';
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getCookie } from "../CookieHandler";
+import ManageCheckout from "../components/ManageCheckout";
 
 function Detail(){
 
     const navigate = useNavigate();
+    const [openCheckout, setOpenCheckout] = useState(false);
+
+    function openDialog() {
+        console.log("click "+openCheckout)
+        if(openCheckout === false) {
+            setOpenCheckout(true);
+        } else {
+            setOpenCheckout(false);
+        }
+    }
 
     console.log("Detail!")
 
@@ -89,7 +100,12 @@ function Detail(){
                              {instrumentsData.title}
                          </Typography>
                          {isUser(userID) ?
-                         <Button className="rentBarButton" sx={{background: 'rgba(10, 10, 10, 0.7)', color:'white', borderRadius: 4 }}>
+                         <Button
+                            className="rentBarButton"
+                            sx={{background: 'rgba(10, 10, 10, 0.7)', color:'white', borderRadius: 4 }}
+                            onClick={() => {
+                                openDialog();
+                            }}>
                              Ausleihen
                          </Button>
                          :
@@ -174,6 +190,12 @@ function Detail(){
      
      
                  </Grid> 
+
+                 <ManageCheckout
+                    instrument = {instrumentsData}
+                    open = {openCheckout}
+                    user = {userID}
+                 />
      
             </div>
          )

@@ -16,20 +16,25 @@ import {
     Link,
   } from "@mui/material";
   import React, { useState } from "react";
-  import "./CheckoutDialog.css";
+  import "./styles/CheckoutDialog.scss";
   import { useNavigate } from "react-router-dom";
   import { useForm, Controller } from "react-hook-form";
+import { useQuery } from "react-query";
   
-  function CheckoutDialog(props: any) {
+  function CheckoutDialog(props: any) { 
     const {
       open,
       handleClose,
       finishTransaction,
-      selectedShow,
-      selectedSeats,
-      user,
-      priceForSeats,
+      instrument,
+      userID,
     } = props;
+    const apiUrlAll = `http://localhost:8080/user/${userID}`;
+
+
+    const {isLoadingUser, isError, data: user} : any = useQuery("User", () =>
+        fetch(apiUrlAll).then((res) => res.json())
+    );
     const [paymentMethod, setPaymentMethod] = useState("creditCard");
     const [error, setError] = useState({ isError: false, msg: "No Error" });
     const [isLoading, setIsLoading] = useState(false);
@@ -39,7 +44,7 @@ import {
     const [cardExpiry, setCardExpiry] = useState("");
     const [cardPin, setCardPin] = useState("");
     const [agree, setAgree] = useState(false);
-    const apiUrlBlockSeat = `/booking/add`;
+    const apiUrlBlockSeat = `http://localhost:8080/booking/add`;
     const {
       setValue,
       handleSubmit,
@@ -53,17 +58,19 @@ import {
   
     const blockSeat = async () => {
   
+      const today : Date = new Date();
+      let returnDate : Date = new Date();
+      returnDate.setDate(returnDate.getDate() + 30);
       let success: boolean = false;
       setIsLoading(true);
       const requestOptions = {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          userID: user.id,
-          seatIDs: selectedSeats,
-          showID: selectedShow.id,
-          state: "Paid",
-          bookingDate: new Date().toISOString().substring(0, 10),
+          userID: userID,
+          instrumentID: instrument.id,
+          apprxReturnDate: returnDate.toISOString().substring(0, 10),
+          bookingDate: today.toISOString().substring(0, 10),
         }),
       };
       const response = await fetch(apiUrlBlockSeat, requestOptions);
@@ -86,53 +93,7 @@ import {
     function checkboxHandler() {
       setAgree(!agree);
     }
-  
-    // eslint-disable-next-line
-    if (user?.id === undefined) {
-      return (
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            scroll="paper"
-            aria-labelledby="scroll-dialog-title"
-            aria-describedby="scroll-dialog-description"
-            fullWidth={true}
-            maxWidth="sm"
-          >
-            <DialogTitle id="scroll-dialog-title">
-              Bitte loggen Sie sich ein, um fortzufahren!
-            </DialogTitle>
-            <DialogContent dividers={true}>
-              <DialogContentText
-                id="scroll-dialog-description"
-                className="alignCenter"
-              >
-                Um bei uns Instrumente buchen zu können, loggen Sie sich bitte ein
-                oder registrieren Sie sich kostenfrei!
-                <br />
-                <br />
-                <Button
-                  variant="contained"
-                  onClick={(e) => navigate("/login")}
-                >
-                  Einloggen
-                </Button>
-                <strong>{` oder `}</strong>
-                <Button
-                  className="smallButton"
-                  variant="contained"
-                  onClick={(e) => navigate("/registrierung")}
-                >
-                  Registrieren
-                </Button>
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>Abbruch</Button>
-            </DialogActions>
-          </Dialog>
-      );
-    }
+
     return (
         <Dialog
           open={open}
@@ -144,33 +105,15 @@ import {
           maxWidth="sm"
         >
           <DialogTitle id="scroll-dialog-title">
-            Checkout {selectedShow?.movie?.title}
+            Checkout: {instrument.title}
           </DialogTitle>
           <DialogContent dividers={true}>
             <DialogContentText id="scroll-dialog-description">
               {isLoading ? <></> : null}
               <Grid container spacing={2}>
                 <Grid item xs={5}>
-                  <h2>{selectedShow?.movie?.title}</h2>
-                  <p>
-                    {selectedShow?.cinemaRoom?.roomName}
-                    <br />
-                    {selectedShow?.startTime?.substring(0, 5)} Uhr
-                    <br />
-                    Sprache: {selectedShow?.movie?.language}
-                  </p>
-                  <br />
-                  <br />
-                  <Box className="outlinedBox">
-                    <Grid container spacing={1}>
-                      <Grid item xs={8}>
-                        <p>{selectedSeats.length} Sitzplätze</p>
-                      </Grid>
-                      <Grid item xs={4} className="textAlignRight">
-                        <p>{priceForSeats}€</p>
-                      </Grid>
-                    </Grid>
-                  </Box>
+                  <h2>{instrument.title}</h2>
+                  <h4>{instrument.category}</h4>
                 </Grid>
                 <Grid item xs={1}>
                   <div className="lineOfDivision" />
