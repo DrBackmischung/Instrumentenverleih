@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import {Avatar, Box, Button, Container, Grid, IconButton, Link, TextField, Typography} from "@mui/material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import {useNavigate} from "react-router-dom";
-import "./UserRegistrationPage.css";
+import "./styles/SignUp.scss";
 import { useForm, Controller } from "react-hook-form";
 import LoadingAnimation from "../components/LoadingAnimation";
 import { setCookie } from "../CookieHandler";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
-function SignUp(props: any) {
-    const { setUser } = props;
+function SignUp() {
     const [userName, setUserName]: any = useState("");
     const [firstName, setFirstName]: any = useState("");
     const [lastName, setLastName]: any = useState("");
@@ -31,7 +30,7 @@ function SignUp(props: any) {
       control,
     } = useForm();
   
-    const apiUrlAll = `/registration`;
+    const apiUrlAll = `http://localhost:8080/registration`;
   
     const redirectToHome = () => {
       navigate("/");
@@ -41,25 +40,11 @@ function SignUp(props: any) {
       navigate("/Login");
     };
   
-    const passwordMd5 = (password: any) => {
-      let md5 = require("md5");
-      let hashPassword = md5(password);
-      return hashPassword;
-    };
-  
-    const confirmPasswordMd5 = (confirmPassword: any) => {
-      let md5 = require("md5");
-      let hashConfirmPassword = md5(confirmPassword);
-      return hashConfirmPassword;
-    };
-  
     const handleSubmitClick = async () => {
       let redirectHome: boolean = false;
       setIsLoading(true);
-      let hashPassword = passwordMd5(password);
-      let hashConfirmPassword = confirmPasswordMd5(confirmPassword);
   
-      if (hashPassword === hashConfirmPassword) {
+      if (password === confirmPassword) {
         const requestOptions = {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -68,8 +53,8 @@ function SignUp(props: any) {
             firstName: firstName,
             name: lastName,
             email: email,
-            passwordHash: hashPassword,
-            passwordConfirmHash: hashConfirmPassword,
+            passwordHash: password,
+            passwordConfirmHash: confirmPassword,
             street: street,
             number: number,
             plz: parseInt(plz),
@@ -84,7 +69,6 @@ function SignUp(props: any) {
           const data: any = await response.json();
           setError({ isError: false, msg: "No error" });
           setCookie("userId", data.id, 7);
-          setUser();
           redirectHome = true;
         }
         setIsLoading(false);

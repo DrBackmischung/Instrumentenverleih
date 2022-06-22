@@ -18,16 +18,17 @@ import {setCookie} from "../CookieHandler";
 import {useNavigate} from "react-router-dom";
 import {useForm, Controller} from "react-hook-form";
 import LoadingAnimation from "../components/LoadingAnimation";
-import "./SignInPage.css";
+import "./styles/SignIn.scss";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import md5 from "md5";
 
 const theme = createTheme();
 
-export default function SignIn(props: any) {
-    const {setUser} = props;
+export default function SignIn() {
+
     const [userName, setUserName] = useState("");
     const [userPassword, setUserPassword] = useState("");
-    const apiUlr = `/login`;
+    const apiUlr = `http://localhost:8080/login`;
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState({isError: false, msg: "No Error"});
     const {
@@ -43,7 +44,6 @@ export default function SignIn(props: any) {
         navigate("/");
     };
     const passwordMd5 = (password: any) => {
-        let md5 = require("md5");
         let hashPassword = md5(password);
         return hashPassword;
     };
@@ -52,13 +52,13 @@ export default function SignIn(props: any) {
         let redirectHome: boolean = false;
         setIsLoading(true);
         let passwordToSend: string;
-        passwordToSend = passwordMd5(userPassword);
+        //passwordToSend = passwordMd5(userPassword);
         const requestOptions = {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: userName,
-                passwordHash: passwordToSend,
+                passwordHash: userPassword,
             }),
         };
         const response = await fetch(apiUlr, requestOptions);
@@ -68,7 +68,6 @@ export default function SignIn(props: any) {
             const data: any = await response.json();
             setError({isError: false, msg: "No error"});
             setCookie("userId", data.id, 7);
-            setUser();
             redirectHome = true;
         }
         setIsLoading(false);
@@ -198,7 +197,7 @@ export default function SignIn(props: any) {
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="/registrierung" variant="body2">
+                                <Link href="/signup" variant="body2">
                                     {"Neuer Benutzer?"}
                                 </Link>
                             </Grid>
