@@ -15,7 +15,7 @@ var mockData = [
         title: "Yamaha Stage Hip",
         category: "Schlaginstrumente",
         picture: 'src/ressources/Schlagzeug.svg',
-        link: "schlagzeug"
+        link: "schlagzeugungos"
     }
 ]
 
@@ -53,8 +53,9 @@ function Ausleihe() {
     var getFilterItems = () => {
 
         let filterItems: string[] = [];
+        let itemsToFilter = instrumentsData;
 
-        originalData.forEach(element => {
+        itemsToFilter.forEach((element : any) => {
             if(!(filterItems.includes(element.category))){
                 filterItems.push(element.category);
             }
@@ -64,6 +65,18 @@ function Ausleihe() {
 
     }
 
+
+    if(isLoading) {
+        return(
+            <p>Loading!</p>
+        )
+    }
+
+    if(isError) {
+        return(
+            <p>Error!</p>
+        )
+    }
 
 
 
