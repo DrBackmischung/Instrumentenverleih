@@ -189,6 +189,7 @@ function Detail(){
                  <ManageCheckout
                     instrument = {instrumentsData}
                     open = {openCheckout}
+                    setOpen = {showDialog}
                     user = {userID}
                  />
      
