@@ -1,0 +1,29 @@
+@import "../../default.scss";
+
+.main {
+    background-color: rgba(14,20,32,255);
+}
+
+.body {
+    background-color: rgba(14,20,32,255);
+}
+
+.text {
+    color: $white;
+}
+
+.btn_login {
+    color: "rgba(5,10,15,255)";
+    background-color: "rgba(5,10,15,255)";
+    border-color: "rgba(5,10,15,255)";
+}
+
+.btn_login:hover {
+    color: "rgba(5,10,15,255)";
+    background-color: "rgba(5,10,15,255)";
+    border-color: "rgba(5,10,15,255)";
+}
+
+.form-label {
+    color: $secondary;
+}

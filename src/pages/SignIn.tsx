@@ -3,6 +3,7 @@ import React, {useState} from "react";
 import Grid from "@mui/material/Grid";
 import {
     Avatar,
+    Box,
     Checkbox,
     Container,
     CssBaseline,
@@ -20,9 +21,9 @@ import {useForm, Controller} from "react-hook-form";
 import LoadingAnimation from "../components/LoadingAnimation";
 import "./styles/SignIn.scss";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import md5 from "md5";
 
-const theme = createTheme();
 
 export default function SignIn() {
 
@@ -78,17 +79,7 @@ export default function SignIn() {
 
     if (isLoading)
         return (
-            <Container
-                sx={{
-                    bgcolor: "background.paper",
-                    pt: 8,
-                    pb: 6,
-                    position: "relative",
-                    marginTop: "15rem",
-                }}
-                maxWidth="md"
-            >
-            </Container>
+            <p>Loading</p>
         );
 
     function goBack() {
@@ -97,22 +88,27 @@ export default function SignIn() {
 
     return (
         <div 
-            min-height="100%"
         >
             <IconButton id="signInPage-iconButton" sx={{mt: -8, marginLeft: 5, position: 'fixed', zIndex: '100'}} onClick={goBack}>
                 <ArrowBackIosIcon/>
             </IconButton>
-            <Container
+            <Container sx={{mt: 2}}
                 id ="singInPage-container"
                 component="main"
                 maxWidth="xs"
+                className="main"
             >
-                <CssBaseline/>
-                <div className="">
-                    <Avatar className="{classes.avatar}">
-                        <LockIcon/>
+                <Box
+                    sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    }}
+                >
+                    <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+                        <LockOutlinedIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
+                    <Typography component="h1" variant="h5" className="text">
                         Einloggen
                     </Typography>
                     <form className="{classes.form}" noValidate>
@@ -136,6 +132,11 @@ export default function SignIn() {
                                     }}
                                     value={userName}
                                     error={errors.userName}
+                                    InputLabelProps={{
+                                      style: {
+                                        color: "white"
+                                      }
+                                    }}
                                 />
                             )}
                         />
@@ -163,13 +164,26 @@ export default function SignIn() {
                                         return;
                                     }}
                                     error={errors.userPassword}
+                                    InputLabelProps={{
+                                      style: {
+                                        color: "white"
+                                      }
+                                    }}
                                 />
                             )}
                         />
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary"/>}
-                            label="Bleibe eingeloggt!"
-                        />
+
+                        <Grid item xs={12}>
+                            <input
+                            type="checkbox"
+                            value="allowExtraEmails"
+                            color="primary"
+                            />
+                            <label style={{color: "#65615a"}}>
+                            {" "}
+                                Angemeldet bleibe.
+                            </label>
+                        </Grid>
                         <br/>
                         {error.isError && (
                             <small style={{color: "red"}}>
@@ -184,7 +198,11 @@ export default function SignIn() {
                             type="submit"
                             fullWidth
                             variant="contained"
-                            color="primary"
+                            color="secondary"
+                            sx={{
+                                borderColor: "rgba(5,10,15,255)",
+                                color: "white"
+                            }}
                             className="{classes.submit}"
                             onClick={handleSubmit(handleSubmitClick)}
                         >
@@ -192,18 +210,18 @@ export default function SignIn() {
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="/pw" variant="body2">
+                                <Link href="/pw" variant="body2" style={{color: "#65615a"}}>
                                     Passwort vergessen?
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="/signup" variant="body2">
+                                <Link href="/signup" variant="body2" style={{color: "#65615a"}}>
                                     {"Neuer Benutzer?"}
                                 </Link>
                             </Grid>
                         </Grid>
                     </form>
-                </div>
+                </Box>
             </Container>
         </div>
     );

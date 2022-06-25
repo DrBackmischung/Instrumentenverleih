@@ -84,18 +84,7 @@ function SignUp() {
       setIsLoading(false);
     };
     if (isLoading)
-      return (
-        <Container
-          sx={{
-            bgcolor: "background.paper",
-            pt: 8,
-            pb: 6,
-            position: "relative",
-            marginTop: "15rem",
-          }}
-          maxWidth="md"
-        >
-        </Container>
+      return (<p>Loading</p>
       );
   
     function checkboxHandler() {
@@ -119,16 +108,16 @@ function SignUp() {
             <Container sx={{mt: 2}}>
                 <Box
                     sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
                     }}
                 >
                     <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-                    <LockOutlinedIcon />
+                        <LockOutlinedIcon />
                     </Avatar>
-                    <Typography component="h1" variant="h5">
-                    Registrierung
+                    <Typography component="h1" variant="h5" className="text">
+                        Registrierung
                     </Typography>
                     <form noValidate>
                     <Box component="form" noValidate sx={{ mt: 3 }}>
@@ -152,6 +141,11 @@ function SignUp() {
                                 }}
                                 value={userName}
                                 error={errors.userName}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />
@@ -176,6 +170,11 @@ function SignUp() {
                                 }}
                                 value={firstName}
                                 error={errors.firstName}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />
@@ -199,6 +198,11 @@ function SignUp() {
                                 }}
                                 value={lastName}
                                 error={errors.lastName}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />
@@ -228,11 +232,16 @@ function SignUp() {
                                 }}
                                 value={email}
                                 error={errors.email}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />
 
-                            <small>Wir werden Deine E-Mail niemals mit einem Dritten teilen!</small>
+                            <small  style={{color: "#65615a"}}>Wir werden Deine E-Mail niemals mit einem Dritten teilen!</small>
                         </Grid>
                         <Grid item xs={12}>
                             <Controller
@@ -260,6 +269,11 @@ function SignUp() {
                                 }}
                                 value={password}
                                 error={errors.password}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />
@@ -297,19 +311,16 @@ function SignUp() {
                                     return;
                                 }}
                                 error={errors.confirmPassword}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />
                         </Grid>
-                        <Grid
-                            container
-                            direction="row"
-                            justifyContent="flex-end"
-                            alignItems="center"
-                            spacing={2}
-                            pt={2.2}
-                        >
-                            <Grid item xs={7.55}>
+                            <Grid item xs={8}>
                             <Controller
                                 name="street"
                                 control={control}
@@ -327,6 +338,11 @@ function SignUp() {
                                     return;
                                     }}
                                     error={errors.street}
+                                    InputLabelProps={{
+                                      style: {
+                                        color: "white"
+                                      }
+                                    }}
                                 />
                                 )}
                             />
@@ -349,12 +365,16 @@ function SignUp() {
                                     return;
                                     }}
                                     error={errors.number}
+                                    InputLabelProps={{
+                                      style: {
+                                        color: "white"
+                                      }
+                                    }}
                                 />
                                 )}
                             />
                             </Grid>
-                        </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={4}>
                             <Controller
                             name="PLZ"
                             control={control}
@@ -376,11 +396,16 @@ function SignUp() {
                                     return;
                                 }}
                                 error={errors.PLZ}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={8}>
                             <Controller
                             name="city"
                             control={control}
@@ -398,6 +423,11 @@ function SignUp() {
                                     return;
                                 }}
                                 error={errors.city}
+                                InputLabelProps={{
+                                  style: {
+                                    color: "white"
+                                  }
+                                }}
                                 />
                             )}
                             />{" "}
@@ -416,7 +446,7 @@ function SignUp() {
                             value="allowExtraEmails"
                             color="primary"
                             />
-                            <label>
+                            <label style={{color: "#65615a"}}>
                             {" "}
                                 Ich möchte Inspiration, Marketingaktionen und Updates per E-Mail erhalten.
                             </label>
@@ -424,9 +454,9 @@ function SignUp() {
 
                         <Grid item xs={12}>
                             <input type="checkbox" id="agree" onChange={checkboxHandler} />
-                            <label htmlFor="agree"> Ich stimme den </label>
-                            <Link sx={{color: "#ba8434"}} onClick={redirectToTerms}>Allgemeinen Geschäftsbedingungen (AGBs)</Link>
-                            <label> zu.</label>
+                            <label htmlFor="agree" style={{color: "#65615a"}}> Ich stimme den </label>
+                            <Link sx={{color: "#65615a"}} onClick={redirectToTerms}>Allgemeinen Geschäftsbedingungen (AGBs)</Link>
+                            <label style={{color: "#65615a"}}> zu.</label>
                         </Grid>
                         </Grid>
                         <Button
@@ -436,14 +466,15 @@ function SignUp() {
                         fullWidth
                         variant="contained"
                         onClick={handleSubmit(handleSubmitClick)}
+                        color="secondary"
                         sx={{ mt: 3, mb: 2 }}
                         >
                         Registrieren
                         </Button>
                         <Grid container justifyContent="flex-end">
                         <Grid item>
-                            <Link className="loginText" sx={{color: "#ba8434"}} onClick={() => redirectToLogin()}>
-                            Du hast bereits einen Account? Logge Dich hier ein!
+                            <Link className="loginText" sx={{color: "#65615a"}} onClick={() => redirectToLogin()}>
+                                Du hast bereits einen Account? Logge Dich hier ein!
                             </Link>
                         </Grid>
                         </Grid>
