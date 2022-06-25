@@ -1,11 +1,12 @@
 import React from "react";
 import { Grid, Typography, Button } from "@mui/material";
+import "./styles/UpdateProfileDashboard.scss";
 
 function UpdateProfileDashboard() {
   return (
     <Grid container xs={12} borderTop={"3px solid grey"}>
       <Grid item xs={12} spacing={3} paddingTop={5}>
-        <Typography align="center" component="h1" variant="h5">Dashboard</Typography>
+        <Typography align="center" component="h1" variant="h5" className="text">Dashboard</Typography><br></br>
       </Grid>
       <Grid item xs={12} paddingTop={2}>
         <Button
@@ -13,7 +14,7 @@ function UpdateProfileDashboard() {
           key={"addCC"}
           onClick={() => {}}
           variant="contained"
-          sx={{backgroundColor: "#ba8434"}}
+          color="secondary"
         >
           Kreditkarte hinzufügen
         </Button>
@@ -24,7 +25,7 @@ function UpdateProfileDashboard() {
           key={"addCC"}
           onClick={() => {}}
           variant="contained"
-          sx={{backgroundColor: "#ba8434"}}
+          color="secondary"
         >
           Kreditkarte ändern
         </Button>
@@ -35,7 +36,7 @@ function UpdateProfileDashboard() {
           key={"addCC"}
           onClick={() => {}}
           variant="contained"
-          sx={{backgroundColor: "#ba8434"}}
+          color="secondary"
         >
           Accountinformationen bearbeiten
         </Button>
@@ -45,7 +46,7 @@ function UpdateProfileDashboard() {
           key={"addCC"}
           onClick={() => {}}
           variant="contained"
-          sx={{backgroundColor: "#ba8434"}}
+          color="secondary"
         >
           Passwort ändern
         </Button>

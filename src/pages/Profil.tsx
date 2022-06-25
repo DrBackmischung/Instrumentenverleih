@@ -8,6 +8,8 @@ import CreditCardDetails from "../components/CreditCardDetails";
 import UpdateProfileDashboard from "../components/UpdateProfileDashboard";
 import "./styles/ProfilePage.scss";
 import { getCookie } from "../CookieHandler";
+import { BookingCard } from "../components/BookingCard";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
   const userID: string = getCookie("userId");
@@ -29,6 +31,11 @@ function ProfilePage() {
     return <p>Error</p>;
   }
 
+  const navigate = useNavigate();
+  if (!isUUID(userID)) {
+    navigate("/login");
+  }
+
   return (
     <Container
         className="profilePage-container"
@@ -42,26 +49,35 @@ function ProfilePage() {
     >
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography align="center" component="h1" variant="h5">
+            <Typography align="center" component="h1" variant="h5" className="text">
               Profil von {dataUser?.userName}
             </Typography>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item lg={4} md={4} xs={12}>
             <ProfileDetails selectedUser={dataUser} />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item lg={4} md={4} xs={12}>
             <CreditCardDetails selectedUser={dataUser} />
           </Grid>
-          <Grid item xs={4}>
+          <Grid item lg={4} md={4} xs={12}>
             <UpdateProfileDashboard />
           </Grid>
-          <Grid item xs={6}>
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item lg={12} md={12} xs={12}>
+            <BookingCard selectedUser={dataUser} />
           </Grid>
         </Grid>
     </Container>
   );
+}
+
+function isUUID ( uuid: any ) {
+    let s: any = "" + uuid;
+
+    s = s.match('^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$');
+    if (s === null) {
+      return false;
+    }
+    return true;
 }
 
 export default ProfilePage;
