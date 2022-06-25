@@ -10,10 +10,6 @@ function ManageCheckout(props: any) {
   const navigate = useNavigate();
   const { instrument, open, user, setOpen } = props;
 
-  const handleClickOpenCheckout = () => {
-    setOpen(true);
-  };
-
   const handleCloseCheckout = () => {
     setOpen(false);
   };
