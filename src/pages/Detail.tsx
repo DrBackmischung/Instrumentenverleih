@@ -13,13 +13,8 @@ function Detail(){
     const navigate = useNavigate();
     const [openCheckout, setOpenCheckout] = useState(false);
 
-    function openDialog() {
-        console.log("click "+openCheckout)
-        if(openCheckout === false) {
-            setOpenCheckout(true);
-        } else {
-            setOpenCheckout(false);
-        }
+    function showDialog(open: boolean) {
+        setOpenCheckout(open);
     }
 
     console.log("Detail!")
@@ -104,7 +99,7 @@ function Detail(){
                             className="rentBarButton"
                             sx={{background: 'rgba(10, 10, 10, 0.7)', color:'white', borderRadius: 4 }}
                             onClick={() => {
-                                openDialog();
+                                showDialog(true);
                             }}>
                              Ausleihen
                          </Button>
