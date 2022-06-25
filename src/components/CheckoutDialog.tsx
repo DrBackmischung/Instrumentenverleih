@@ -35,12 +35,13 @@ import { useQuery } from "react-query";
     const {isLoadingUser, isError, data: user} : any = useQuery("User", () =>
         fetch(apiUrlAll).then((res) => res.json())
     );
+    console.log(user);
     const [paymentMethod, setPaymentMethod] = useState("creditCard");
     const [error, setError] = useState({ isError: false, msg: "No Error" });
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
     const [cardId, setCardId] = useState("");
-    const [cardName, setCardName] = useState(`${user?.firstName} ${user?.name}`);
+    const [cardName, setCardName] = useState("");
     const [cardExpiry, setCardExpiry] = useState("");
     const [cardPin, setCardPin] = useState("");
     const [agree, setAgree] = useState(false);

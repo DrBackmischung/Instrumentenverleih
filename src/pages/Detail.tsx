@@ -136,15 +136,18 @@ function Detail(){
      
                              <Grid item xs={12} sm={12} md={12} lg={12} sx={{mt: (checkForDevice() ? 5 : 5), ml: (checkForDevice() ? 0 : 14)}} >
                                  <Grid container xs={12} sm={12} md={12} lg={12}>
-                                     <Grid item xs={12} sm={12} md={12} lg={2} sx={{mt: (checkForDevice() ? 5 : 3)}}>
-                                         <Typography variant="h5" className='parallaxHeader'>Sounbeispiel:</Typography>
+                                    {instrumentsData.example == "" ? <></> : <>
+                                    
+                                    <Grid item xs={12} sm={12} md={12} lg={4} sx={{mt: (checkForDevice() ? 5 : 3)}}>
+                                         <Typography variant="h5" className='parallaxHeader'>Soundbeispiel:</Typography>
                                      </Grid>
      
-                                     <Grid item xs={12} sm={12} md={12} lg={10}>
+                                     <Grid item xs={12} sm={12} md={12} lg={8}>
                                          <Box sx={{mt: (checkForDevice() ? 5 : 5), ml: (checkForDevice() ? 5 : 0)}}>
                                              <ReactAudioPlayer src={instrumentsData.example} controls />
                                          </Box>
-                                     </Grid>
+                                     </Grid></>
+                                     }
                                  </Grid>
                                  
                                  
