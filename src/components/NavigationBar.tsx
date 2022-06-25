@@ -75,13 +75,9 @@ function NavigationBar() {
                 </Button>
               </ButtonGroup>
               <ButtonGroup>
-                {userID === null || userID === "" || userID === undefined ?
                 <IconButton aria-label="delete" color="secondary" href="/login">
                   <AccountCircleIcon />
                 </IconButton>
-                :
-                <p>Profil</p>
-                }
               </ButtonGroup>
               </Box>
             </Toolbar>
