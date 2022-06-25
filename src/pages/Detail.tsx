@@ -7,6 +7,7 @@ import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "react-query";
 import { getCookie } from "../CookieHandler";
 import ManageCheckout from "../components/ManageCheckout";
+import { useTranslation } from "react-i18next";
 
 function Detail(){
 
@@ -17,7 +18,7 @@ function Detail(){
         setOpenCheckout(open);
     }
 
-    console.log("Detail!")
+    const { t, i18n } = useTranslation();
 
     let { instrumentID } = useParams();
     const apiUrlAll = `http://localhost:8080/instrument/${instrumentID}`;
@@ -101,7 +102,7 @@ function Detail(){
                             onClick={() => {
                                 showDialog(true);
                             }}>
-                             Ausleihen
+                             {t("rental_rent_loggedIn")}
                          </Button>
                          :
                          <Button
@@ -110,7 +111,7 @@ function Detail(){
                             onClick={() => {
                                 navigate("/login");
                             }} >
-                             Zum Ausleihen einloggen
+                             {t("rental_rent_notLoggedIn")}
                          </Button>
                          }
                      </Toolbar>
@@ -136,10 +137,12 @@ function Detail(){
      
                              <Grid item xs={12} sm={12} md={12} lg={12} sx={{mt: (checkForDevice() ? 5 : 5), ml: (checkForDevice() ? 0 : 14)}} >
                                  <Grid container xs={12} sm={12} md={12} lg={12}>
+
                                     {instrumentsData.example == "" ? <></> : <>
                                     
                                     <Grid item xs={12} sm={12} md={12} lg={4} sx={{mt: (checkForDevice() ? 5 : 3)}}>
-                                         <Typography variant="h5" className='parallaxHeader'>Soundbeispiel:</Typography>
+                                         <Typography variant="h5" className='header'>{t("rental_rent_sound_sample")}</Typography>
+
                                      </Grid>
      
                                      <Grid item xs={12} sm={12} md={12} lg={8}>
@@ -163,9 +166,9 @@ function Detail(){
                      
                          <Box className="Uebersicht" id="uebersichtContainer" sx={{width: (checkForDevice() ? "75%" : "25%")}}>
                              <Typography variant="h3" sx={{fontWeight: 'bold'}}>Highlights</Typography>
-                             <Typography variant="h4">Darum empfehlen wir dieses Produkt</Typography>
+                             <Typography variant="h4">{t("rental_rent_highlight_header")}</Typography>
                              <Typography>{instrumentsData.highlightText}</Typography>
-                             <Typography variant="h4">Die Vorteile im Überblick</Typography>
+                             <Typography variant="h4">{t("rental_rent_highlight_overview")}</Typography>
                              {instrumentsData.highlightList?.map((point : any) => (
                                  <ul key={point.text}>
                                      <li>{point.text}</li>
