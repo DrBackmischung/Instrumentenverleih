@@ -9,6 +9,7 @@ import CookiesNotification from './components/CookiesNotification';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import ProfilePage from './pages/Profil';
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ function App() {
       <CookiesNotification/>
         <Routes>
             <Route path="/" element={<><Home /></>} />
+            <Route path="/profil" element={<><NavigationBar/><ProfilePage /><FooterBar/></>} />
             <Route path="/login" element={<><NavigationBar/><SignIn /><FooterBar/></>} />
             <Route path="/signup" element={<><NavigationBar/><SignUp /><FooterBar/></>} />
             <Route path="/ausleihe" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
