@@ -75,7 +75,7 @@ function NavigationBar() {
                 </Button>
               </ButtonGroup>
               <ButtonGroup>
-                <IconButton aria-label="delete" color="secondary" href="/login">
+                <IconButton aria-label="delete" color="secondary" href="/profil">
                   <AccountCircleIcon />
                 </IconButton>
               </ButtonGroup>
