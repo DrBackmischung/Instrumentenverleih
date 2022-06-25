@@ -3,6 +3,8 @@ import "./styles/Ausleihe.scss"
 import InstrumentsTable from "../components/InstrumentsTable";
 import { useState } from "react";
 import { useQuery } from "react-query";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 var mockData = [
     {
@@ -32,10 +34,12 @@ function Ausleihe() {
 
     const [filter, setFilter] = useState("");
 
-
-    const originalData = mockData;
+    const navigate = useNavigate();
+    const { t, i18n } = useTranslation();
 
     const theme = useTheme();
+
+    console.log(i18n.language);
 
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
         defaultMatches: true
@@ -56,12 +60,26 @@ function Ausleihe() {
         let itemsToFilter = instrumentsData;
 
         itemsToFilter.forEach((element : any) => {
-            if(!(filterItems.includes(element.category))){
+            if((!(filterItems.includes(element.category)))&&(element.languageCode === i18n.language)){
                 filterItems.push(element.category);
             }
         });
                 
         return filterItems;
+
+    }
+
+    var getInstrumentsForLanguage = () => {
+
+        let items: any = [];
+
+        instrumentsData.forEach((element : any) => {
+            if(element.languageCode === i18n.language){
+                items.push(element);
+            }
+        })
+
+        return items;
 
     }
 
@@ -84,7 +102,7 @@ function Ausleihe() {
     return (
         <div className='main'>
 
-            <Typography variant='h2' align='center' className='titleText' sx={{mt: 5}}>Unsere ausleihbaren Instrumente</Typography>
+            <Typography variant='h2' align='center' className='titleText' sx={{mt: 5}}>{t("rental_header")}</Typography>
             <Toolbar sx={{mt: 5}}>
 
                 <Grid container>
@@ -115,7 +133,7 @@ function Ausleihe() {
                 
             </Toolbar>
 
-            <InstrumentsTable instrumentsData={instrumentsData} filter={filter} isMobile={checkForDevice()} id="table"/>
+            <InstrumentsTable instrumentsData={getInstrumentsForLanguage()} filter={filter} isMobile={checkForDevice()} id="table"/>
 
         </div>
     )
