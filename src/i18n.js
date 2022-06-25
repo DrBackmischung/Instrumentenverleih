@@ -20,6 +20,13 @@ i18n
           menu_rent: "Rental",
           menu_market: "Marketplace",
           menu_service: "Service Portal",
+          rental_header: "Our available instruments",
+          rental_rent_loggedIn: "rent",
+          rental_rent_notLoggedIn: "login to rent",
+          rental_rent_sound_sample: "Sound sample: ",
+          rental_rent_highlight_header: "That's why we recommend this product",
+          rental_rent_highlight_overview: "The advantages at a glance",
+
           footer_contact: "Contact",
           footer_impressum: "Impressum",
         }
@@ -36,6 +43,13 @@ i18n
           menu_rent: "Ausleihe",
           menu_market: "Marktplatz",
           menu_service: "Serviceportal",
+          rental_header: "Unsere ausleihbaren Instrumente",
+          rental_rent_loggedIn: "Ausleihen",
+          rental_rent_notLoggedIn: "Zum Ausleihen einloggen",
+          rental_rent_sound_sample: "Soundbeispiel: ",
+          rental_rent_highlight_header: "Darum empfehlen wir dieses Produkt",
+          rental_rent_highlight_overview: "Die Vorteile im Überblick",
+
           footer_contact: "Kontakt",
           footer_impressum: "Impressum",
         }
