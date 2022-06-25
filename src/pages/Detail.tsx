@@ -14,13 +14,8 @@ function Detail(){
     const navigate = useNavigate();
     const [openCheckout, setOpenCheckout] = useState(false);
 
-    function openDialog() {
-        console.log("click "+openCheckout)
-        if(openCheckout === false) {
-            setOpenCheckout(true);
-        } else {
-            setOpenCheckout(false);
-        }
+    function showDialog(open: boolean) {
+        setOpenCheckout(open);
     }
 
     const { t, i18n } = useTranslation();
@@ -105,7 +100,7 @@ function Detail(){
                             className="rentBarButton"
                             sx={{background: 'rgba(10, 10, 10, 0.7)', color:'white', borderRadius: 4 }}
                             onClick={() => {
-                                openDialog();
+                                showDialog(true);
                             }}>
                              {t("rental_rent_loggedIn")}
                          </Button>
@@ -142,15 +137,20 @@ function Detail(){
      
                              <Grid item xs={12} sm={12} md={12} lg={12} sx={{mt: (checkForDevice() ? 5 : 5), ml: (checkForDevice() ? 0 : 14)}} >
                                  <Grid container xs={12} sm={12} md={12} lg={12}>
-                                     <Grid item xs={12} sm={12} md={12} lg={2} sx={{mt: (checkForDevice() ? 5 : 3)}}>
+
+                                    {instrumentsData.example == "" ? <></> : <>
+                                    
+                                    <Grid item xs={12} sm={12} md={12} lg={4} sx={{mt: (checkForDevice() ? 5 : 3)}}>
                                          <Typography variant="h5" className='header'>{t("rental_rent_sound_sample")}</Typography>
+
                                      </Grid>
      
-                                     <Grid item xs={12} sm={12} md={12} lg={10}>
+                                     <Grid item xs={12} sm={12} md={12} lg={8}>
                                          <Box sx={{mt: (checkForDevice() ? 5 : 5), ml: (checkForDevice() ? 5 : 0)}}>
                                              <ReactAudioPlayer src={instrumentsData.example} controls />
                                          </Box>
-                                     </Grid>
+                                     </Grid></>
+                                     }
                                  </Grid>
                                  
                                  
@@ -195,6 +195,7 @@ function Detail(){
                  <ManageCheckout
                     instrument = {instrumentsData}
                     open = {openCheckout}
+                    setOpen = {showDialog}
                     user = {userID}
                  />
      

@@ -8,19 +8,14 @@ import { useNavigate } from "react-router-dom";
 const theme = createTheme();
 function ManageCheckout(props: any) {
   const navigate = useNavigate();
-  const { instrument, open, user } = props;
-  const [openCheckout, setOpenCheckout] = useState(false);
-
-  const handleClickOpenCheckout = () => {
-    setOpenCheckout(true);
-  };
+  const { instrument, open, user, setOpen } = props;
 
   const handleCloseCheckout = () => {
-    setOpenCheckout(false);
+    setOpen(false);
   };
 
   const finishTransaction = () => {
-    setOpenCheckout(false);
+    setOpen(false);
     navigate("/");
   };
 

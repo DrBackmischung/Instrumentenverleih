@@ -30,3 +30,54 @@
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
+.menu-picture {
+    position: relative;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.parallaxHeader {
+    text-align: left;
+ //   vertical-align: middle;
+    position: relative;
+   // margin-bottom: 2%;
+    //padding-bottom: 1%;
+    padding-left: 10%;
+    //left: 60%;
+    top: 30%;
+    font-size: 80px;
+    //transform: translate(0%, -200%);
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.parallaxText {
+    text-align: left;
+    position: relative;
+    top: 30%;
+    padding-right: 10%;
+    padding-left: 10%;
+    //transform: translate(0%, -150%);
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+.textWrapper{
+    padding-right: 5%;
+    margin-right: 5%;
+}
+
+.rentBarHeader{
+    padding-left: 5%;
+}
+
+.rentBarButton{
+    margin-right: 15%;
+    background: white;
+}
+
+.className{
+    max-width: 500px;
+    height: auto;
+}
