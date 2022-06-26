@@ -44,10 +44,6 @@ export default function SignIn() {
     const redirectToHome = () => {
         navigate("/");
     };
-    const passwordMd5 = (password: any) => {
-        let hashPassword = md5(password);
-        return hashPassword;
-    };
 
     const handleSubmitClick = async () => {
         let redirectHome: boolean = false;
@@ -59,7 +55,7 @@ export default function SignIn() {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 username: userName,
-                passwordHash: userPassword,
+                passwordHash: md5(userPassword),
             }),
         };
         const response = await fetch(apiUlr, requestOptions);

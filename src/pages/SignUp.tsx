@@ -7,6 +7,7 @@ import { useForm, Controller } from "react-hook-form";
 import LoadingAnimation from "../components/LoadingAnimation";
 import { setCookie } from "../CookieHandler";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import md5 from "md5";
 
 function SignUp() {
     const [userName, setUserName]: any = useState("");
@@ -53,8 +54,8 @@ function SignUp() {
             firstName: firstName,
             name: lastName,
             email: email,
-            passwordHash: password,
-            passwordConfirmHash: confirmPassword,
+            passwordHash: md5(password),
+            passwordConfirmHash: md5(confirmPassword),
             street: street,
             number: number,
             plz: parseInt(plz),
