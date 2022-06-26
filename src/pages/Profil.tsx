@@ -12,7 +12,12 @@ import { BookingCard } from "../components/BookingCard";
 import { useNavigate } from "react-router-dom";
 
 function ProfilePage() {
+
+  const navigate = useNavigate();
   const userID: string = getCookie("userId");
+  if (!isUUID(userID)) {
+    navigate("/login");
+  }
 
   const apiUrlGetUser = `http://localhost:8080/user/${userID}`;
   const {
@@ -29,11 +34,6 @@ function ProfilePage() {
 
   if (isError || dataUser?.error) {
     return <p>Error</p>;
-  }
-
-  const navigate = useNavigate();
-  if (!isUUID(userID)) {
-    navigate("/login");
   }
 
   return (

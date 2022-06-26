@@ -70,8 +70,8 @@ import { useQuery } from "react-query";
         body: JSON.stringify({
           userID: userID,
           instrumentID: instrument.id,
-          apprxReturnDate: returnDate.toISOString().substring(0, 10),
-          bookingDate: today.toISOString().substring(0, 10),
+          apprxReturnDate: today.toISOString().substring(0, 10),
+          bookingDate: returnDate.toISOString().substring(0, 10),
         }),
       };
       const response = await fetch(apiUrlBlockSeat, requestOptions);
@@ -104,8 +104,17 @@ import { useQuery } from "react-query";
           aria-describedby="scroll-dialog-description"
           fullWidth={true}
           maxWidth="sm"
+          style={{
+            color: "rgba(5,10,15,255)"
+          }}
+          PaperProps={{
+            style: {
+              backgroundColor: "rgba(14,20,32,255)",
+              boxShadow: "none"
+            },
+          }}
         >
-          <DialogTitle id="scroll-dialog-title">
+          <DialogTitle id="scroll-dialog-title" className="text">
             Checkout: {instrument.title}
           </DialogTitle>
           <DialogContent dividers={true}>
@@ -113,8 +122,8 @@ import { useQuery } from "react-query";
               {isLoading ? <></> : null}
               <Grid container spacing={2}>
                 <Grid item xs={5}>
-                  <h2>{instrument.title}</h2>
-                  <h4>{instrument.category}</h4>
+                  <h2 className="text">{instrument.title}</h2>
+                  <h4 className="text">{instrument.category}</h4>
                 </Grid>
                 <Grid item xs={1}>
                   <div className="lineOfDivision" />
@@ -122,7 +131,7 @@ import { useQuery } from "react-query";
                 <Grid item xs={6}>
                   <FormControl className="marginTop1Rem" component="fieldset">
                     <FormLabel component="legend">
-                      <strong>Zahlungsart</strong>
+                      <strong className="text">Zahlungsart</strong>
                     </FormLabel>
                     <RadioGroup
                       aria-label="paymentMethod"
@@ -133,6 +142,7 @@ import { useQuery } from "react-query";
                         value="creditCard"
                         control={<Radio />}
                         label="Kreditkarte"
+                        
                       />
                       {paymentMethod === "creditCard" ? (
                         <div>
