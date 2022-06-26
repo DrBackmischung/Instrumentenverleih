@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import ProfilePage from './pages/Profil';
+import ChatBot from './components/ChatBot';
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ function App() {
             <Route path="/marktplatz/:id" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
 
         </Routes>
+        <ChatBot />
       </QueryClientProvider>
     </>
   )
