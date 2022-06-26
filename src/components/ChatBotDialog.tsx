@@ -30,7 +30,7 @@ import {
     const [messages, setMessages] = useState(welcomeMessage);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(200);
-    const APIUrlChat = `htts://localhost:9000/query`;
+    const APIUrlChat = `http://localhost:9000/query`;
   
     const sendMessageToChatBot = async (userMessage: any) => {
       setLoading(true);
