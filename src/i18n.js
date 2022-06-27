@@ -31,6 +31,12 @@ i18n
           footer_contact: "Contact",
           footer_impressum: "Impressum",
 
+          chatbot_1: "Hi! I am Inga the instrument! :)",
+          chatbot_2: "Just ask me anything. If you can not choose which instrument to play, just have a look at this test:",
+          chatbot_3: "Message for Inga Instrument...",
+          chatbot_4: "I have found this for you:",
+          chatbot_5: "Click me!",
+
           buy: "Buy",
         }
       },
@@ -56,6 +62,12 @@ i18n
 
           footer_contact: "Kontakt",
           footer_impressum: "Impressum",
+
+          chatbot_1: "Hi! Ich bin Inga das Instrument! :)",
+          chatbot_2: "Frag mich alles, was du willst. Wenn du Hilfe brauchst, dich für ein Instrument zu entscheiden: Probiere diesen Test!",
+          chatbot_3: "Nachricht für Inga Instrument...",
+          chatbot_4: "Ich habe das für dich gefunden:",
+          chatbot_5: "Klick mich!",
 
           buy: "Kaufen",
         }

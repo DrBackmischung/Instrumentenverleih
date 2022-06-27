@@ -11,6 +11,7 @@ import {
   import React, { useState } from "react";
   import "./styles/ChatBotDialog.scss";
   import ChatMessage from "./ChatMessage";
+import { useTranslation } from "react-i18next";
   
   const welcomeMessage = [
     {
@@ -31,6 +32,8 @@ import {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(200);
     const APIUrlChat = `http://localhost:9000/query`;
+
+    const { t, i18n } = useTranslation();
   
     const sendMessageToChatBot = async (userMessage: any) => {
       setLoading(true);
@@ -56,7 +59,7 @@ import {
           setMessages((prevVal) => [
             ...prevVal,
             {
-              message: `Ich habe folgendes zu "${userMessage}" gefunden: `,
+              message: `${t("chatbot_4")}`,
               align: "Left",
               link: `${data.content}`,
             },
@@ -107,14 +110,14 @@ import {
               },
             }}
           >
-            <DialogTitle id="scroll-dialog-title">Theo Ticket</DialogTitle>
+            <DialogTitle id="scroll-dialog-title">Inga Instrument</DialogTitle>
             <DialogContent dividers={true}>
               <DialogContentText id="scroll-dialog-description">
                 <p>Error</p>
               </DialogContentText>
             </DialogContent>
             <DialogActions>
-              <Button onClick={onClosePressed}>Schließen</Button>
+              <Button onClick={onClosePressed}>X</Button>
             </DialogActions>
           </Dialog>
       );
@@ -138,7 +141,7 @@ import {
             },
           }}
         >
-          <DialogTitle id="scroll-dialog-title" style={{color: "white"}}>Theo Ticket</DialogTitle>
+          <DialogTitle id="scroll-dialog-title" style={{color: "white"}}>Inga Instrument</DialogTitle>
           <DialogContent dividers={true}>
             <DialogContentText id="scroll-dialog-description">
               <div className="chatBox">
@@ -164,7 +167,7 @@ import {
                 <TextField
                   id="userText"
                   variant="outlined"
-                  label="Nachricht für Theo Ticket..."
+                  label={t("chatbot_3")}
                   value={userInput}
                   onChange={(e) => setUserInput(e.target.value)}
                   fullWidth
@@ -178,13 +181,13 @@ import {
                   variant="contained"
                   onClick={sendUserMessageButton}
                 >
-                  Senden
+                  Enter
                 </Button>
               </div>
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button color="secondary" onClick={onClosePressed}>Schließen</Button>
+            <Button color="secondary" onClick={onClosePressed}>X</Button>
           </DialogActions>
         </Dialog>
     );
