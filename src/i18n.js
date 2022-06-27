@@ -26,9 +26,12 @@ i18n
           rental_rent_sound_sample: "Sound sample: ",
           rental_rent_highlight_header: "That's why we recommend this product",
           rental_rent_highlight_overview: "The advantages at a glance",
+          market_header: "Marketplace",
 
           footer_contact: "Contact",
           footer_impressum: "Impressum",
+
+          buy: "Buy",
         }
       },
       de: {
@@ -49,9 +52,12 @@ i18n
           rental_rent_sound_sample: "Soundbeispiel: ",
           rental_rent_highlight_header: "Darum empfehlen wir dieses Produkt",
           rental_rent_highlight_overview: "Die Vorteile im Überblick",
+          market_header: "Marktplatz",
 
           footer_contact: "Kontakt",
           footer_impressum: "Impressum",
+
+          buy: "Kaufen",
         }
       }
     },
