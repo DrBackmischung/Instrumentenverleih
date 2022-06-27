@@ -31,16 +31,13 @@ import SignatureCanvas from 'react-signature-canvas'
       userID,
     } = props;
     const apiUrlAll = `http://localhost:8080/user/${userID}`;
-
-    
-    const [trimmedDataURL, setTrimmedDataURL] : any = useState();
   
     let sigPad: any = {}
   
     const clear = () => {
       sigPad.clear()
     }
-    
+
     const {isLoadingUser, isError, data: user} : any = useQuery("User", () =>
         fetch(apiUrlAll).then((res) => res.json())
     );
