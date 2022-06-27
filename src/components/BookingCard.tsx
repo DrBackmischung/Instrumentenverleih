@@ -103,6 +103,9 @@ export function BookingCard(props: any) {
                 {b.apprxReturnDate.substring(5, 7)}.
                 {b.apprxReturnDate.substring(0, 4)}
               </p>
+              <p style={{ color:"white" }}>
+                Preis: {b.vo.price}€
+              </p>
               <Button
                 color="secondary"
                 fullWidth
@@ -143,6 +146,17 @@ export function BookingCard(props: any) {
                 width: "20%",
               }}
               src={"data:image/png;base64," + b.qrCode}
+              alt="poster"
+            />
+            <CardMedia
+              component="img"
+              sx={{
+                pt: "2%",
+                pr: "2%",
+                pb: "2%",
+                width: "40%",
+              }}
+              src={"data:image/png;base64," + b.signatureCode}
               alt="poster"
             />
           </Card>

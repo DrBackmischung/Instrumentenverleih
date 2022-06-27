@@ -20,6 +20,7 @@ import {
   import { useNavigate } from "react-router-dom";
   import { useForm, Controller } from "react-hook-form";
 import { useQuery } from "react-query";
+import SignatureCanvas from 'react-signature-canvas'
   
   function CheckoutDialog(props: any) { 
     const {
@@ -31,7 +32,15 @@ import { useQuery } from "react-query";
     } = props;
     const apiUrlAll = `http://localhost:8080/user/${userID}`;
 
-
+    
+    const [trimmedDataURL, setTrimmedDataURL] : any = useState();
+  
+    let sigPad: any = {}
+  
+    const clear = () => {
+      sigPad.clear()
+    }
+    
     const {isLoadingUser, isError, data: user} : any = useQuery("User", () =>
         fetch(apiUrlAll).then((res) => res.json())
     );
@@ -72,6 +81,7 @@ import { useQuery } from "react-query";
           instrumentID: instrument.id,
           apprxReturnDate: today.toISOString().substring(0, 10),
           bookingDate: returnDate.toISOString().substring(0, 10),
+          signatureCode: sigPad.getTrimmedCanvas().toDataURL('image/png').replace("data:image/png;base64,", "")
         }),
       };
       const response = await fetch(apiUrlBlockSeat, requestOptions);
@@ -115,35 +125,42 @@ import { useQuery } from "react-query";
           }}
         >
           <DialogTitle id="scroll-dialog-title" className="text">
-            Checkout: {instrument.title}
+            Checkout: {instrument.title} ({instrument.category})
           </DialogTitle>
           <DialogContent dividers={true}>
             <DialogContentText id="scroll-dialog-description">
               {isLoading ? <></> : null}
               <Grid container spacing={2}>
                 <Grid item xs={5}>
-                  <h2 className="text">{instrument.title}</h2>
-                  <h4 className="text">{instrument.category}</h4>
+                  <RadioGroup
+                      color="secondary"
+                      aria-label="paymentMethod"
+                      defaultValue="creditCard"
+                      onChange={handleRadioChange}
+                  >
+                    <FormControlLabel
+                      color="secondary"
+                      value="creditCard"
+                      control={<Radio />}
+                      label="Kreditkarte"
+                    />
+                    <FormControlLabel
+                      value="paypal"
+                      control={<Radio />}
+                      label="Paypal"
+                    />
+                    <FormControlLabel
+                      value="instantBankTransfer"
+                      control={<Radio />}
+                      label="Sofortüberweisung"
+                    />
+                  </RadioGroup>
                 </Grid>
                 <Grid item xs={1}>
                   <div className="lineOfDivision" />
                 </Grid>
                 <Grid item xs={6}>
                   <FormControl className="marginTop1Rem" component="fieldset">
-                    <FormLabel component="legend">
-                      <strong className="text">Zahlungsart</strong>
-                    </FormLabel>
-                    <RadioGroup
-                      aria-label="paymentMethod"
-                      defaultValue="creditCard"
-                      onChange={handleRadioChange}
-                    >
-                      <FormControlLabel
-                        value="creditCard"
-                        control={<Radio />}
-                        label="Kreditkarte"
-                        
-                      />
                       {paymentMethod === "creditCard" ? (
                         <div>
                           <Controller
@@ -257,40 +274,39 @@ import { useQuery } from "react-query";
                           />
                         </div>
                       ) : null}
-                      <FormControlLabel
-                        value="paypal"
-                        control={<Radio />}
-                        label="Paypal"
-                      />
                       {paymentMethod === "paypal" ? (
                         <p>
                           Sie werden während des Checkouts zu Paypal
                           weitergeleitet.
                         </p>
                       ) : null}
-                      <FormControlLabel
-                        value="instantBankTransfer"
-                        control={<Radio />}
-                        label="Sofortüberweisung"
-                      />
                       {paymentMethod === "instantBankTransfer" ? (
                         <p>
                           Sie werden während des Checkouts zu Klarna
                           weitergeleitet.
                         </p>
                       ) : null}
-                    </RadioGroup>
   
-                    <label htmlFor="agree">
+                    <label htmlFor="agree" style={{color: "white"}}>
                       <input
                         type="checkbox"
                         id="agree"
                         onChange={checkboxHandler}
+                        style={{color: "#9f20d1"}}
                       />{" "}
                       Ich akzeptiere die{" "}
-                      <Link onClick={redirectToTerms}>AGBs</Link>.{" "}
+                      <Link onClick={redirectToTerms} style={{color: "#9f20d1"}}>AGBs</Link>.{" "}
                     </label>
+                    <br></br>
                   </FormControl>
+                      <br></br>
+                      <strong style={{color: "white"}}>Unterschrift</strong> 
+                  <SignatureCanvas penColor='purple' backgroundColor="white" canvasProps={{width: "200%", height: "100%", className: 'sigCanvas'}}
+                    ref={(ref) => { sigPad = ref }}
+                  /><br></br>
+                  <Button color="secondary" onClick={() => {
+                    clear();
+                  }}>Unterschrift zurücksetzen</Button>
                 </Grid>
               </Grid>
               {error.isError ? (
@@ -303,8 +319,8 @@ import { useQuery } from "react-query";
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Abbruch</Button>
-            <Button disabled={!agree} onClick={handleSubmit(blockSeat)}>
+            <Button color="secondary" onClick={handleClose}>Abbruch</Button>
+            <Button color="secondary" disabled={!agree} onClick={handleSubmit(blockSeat)}>
               Bezahlen
             </Button>
           </DialogActions>

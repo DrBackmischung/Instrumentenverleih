@@ -53,13 +53,10 @@ function ProfilePage() {
               Profil von {dataUser?.userName}
             </Typography>
           </Grid>
-          <Grid item lg={4} md={4} xs={12}>
+          <Grid item lg={6} md={6} xs={12}>
             <ProfileDetails selectedUser={dataUser} />
           </Grid>
-          <Grid item lg={4} md={4} xs={12}>
-            <CreditCardDetails selectedUser={dataUser} />
-          </Grid>
-          <Grid item lg={4} md={4} xs={12}>
+          <Grid item lg={6} md={6} xs={12}>
             <UpdateProfileDashboard />
           </Grid>
           <Grid item lg={12} md={12} xs={12}>

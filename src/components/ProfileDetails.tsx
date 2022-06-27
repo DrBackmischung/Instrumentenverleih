@@ -16,13 +16,10 @@ function ProfileDetails(props: any) {
         <p className="text"><b>Mail:</b> {selectedUser?.email}</p><br></br>
       </Grid>
       <Grid item xs={12}>
-        <p className="text"><b>Adresse:</b> {selectedUser?.street} {selectedUser?.number}, {selectedUser?.city?.plz} {selectedUser?.city?.city}</p><br></br>
+        <p className="text"><b>Adresse:</b> {selectedUser?.street} {selectedUser?.number}, {selectedUser?.plz} {selectedUser?.city}</p><br></br>
       </Grid>
       <Grid item xs={12}>
         <p className="text"><b>Paypal:</b> {selectedUser?.payPalMail === null ? "Nein" : "Ja"}</p><br></br>
-      </Grid>
-      <Grid item xs={12}>
-        <p className="text"><b>Kreditkarte:</b> {selectedUser?.creditCard === null ? "Nein" : "Ja"}</p><br></br>
       </Grid>
     </Grid>
   );
