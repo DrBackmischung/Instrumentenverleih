@@ -8,9 +8,7 @@ Projekt für Vorlesung EVS - Webentwicklung
 - Parallax
 - E2E Tests / Cypress
 - Backend
-- Backend Tests
-- Barrierefreiheit (a11y)
 - Marktplatz
 - Serviceportal
 - Responsive
-- (Chatbot? TheoTicket!)
+- Chatbot / Microservice
