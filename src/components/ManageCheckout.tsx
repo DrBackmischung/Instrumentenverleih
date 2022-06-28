@@ -16,7 +16,7 @@ function ManageCheckout(props: any) {
 
   const finishTransaction = () => {
     setOpen(false);
-    navigate("/");
+    navigate("/success");
   };
 
   return (

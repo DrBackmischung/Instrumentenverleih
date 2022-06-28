@@ -12,6 +12,8 @@ import SignUp from './pages/SignUp';
 import ProfilePage from './pages/Profil';
 import ChatBot from './components/ChatBot';
 import Marktplatz from './pages/Marktplatz';
+import ThankYou from './pages/ThankYou';
+import AGBs from './pages/AGB';
 
 const queryClient = new QueryClient();
 
@@ -30,6 +32,8 @@ function App() {
             <Route path="/marktplatz" element={<><NavigationBar/><Marktplatz /><FooterBar/></>} />
             <Route path="/serviceportal" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
             <Route path="/marktplatz/:id" element={<><NavigationBar/><Ausleihe /><FooterBar/></>} />
+            <Route path="/success" element={<><NavigationBar/><ThankYou /></>} />
+            <Route path="/AGB" element={<><NavigationBar/><AGBs /><FooterBar/></>} />
 
         </Routes>
         <ChatBot />

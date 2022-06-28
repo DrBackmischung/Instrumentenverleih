@@ -95,7 +95,7 @@ import SignatureCanvas from 'react-signature-canvas'
     };
   
     function redirectToTerms() {
-      navigate("/AGBs");
+      navigate("/AGB");
     }
   
     function checkboxHandler() {

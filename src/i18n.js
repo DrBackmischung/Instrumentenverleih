@@ -5,7 +5,7 @@ i18n
   .use(initReactI18next)
   .init({
     lng: 'de',
-    fallbackLng: 'en',
+    fallbackLng: 'de',
     debug: true,
     resources: {
       en: {
@@ -27,6 +27,8 @@ i18n
           rental_rent_highlight_header: "That's why we recommend this product",
           rental_rent_highlight_overview: "The advantages at a glance",
           market_header: "Marketplace",
+
+          success_header: "Thank you for your order!",
 
           footer_contact: "Contact",
           footer_impressum: "Impressum",
@@ -59,6 +61,8 @@ i18n
           rental_rent_highlight_header: "Darum empfehlen wir dieses Produkt",
           rental_rent_highlight_overview: "Die Vorteile im Überblick",
           market_header: "Marktplatz",
+
+          success_header: "Danke für deine Bestellung!",
 
           footer_contact: "Kontakt",
           footer_impressum: "Impressum",

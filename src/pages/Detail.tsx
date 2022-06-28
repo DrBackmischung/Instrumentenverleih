@@ -1,4 +1,4 @@
-import { AppBar, Box, Button, Grid, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { AppBar, Box, Button, Grid, IconButton, Toolbar, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import ReactAudioPlayer from "react-audio-player";
 import DetailAdvSec from "../components/DetailAdvSec";
@@ -8,11 +8,16 @@ import { useQuery } from "react-query";
 import { getCookie } from "../CookieHandler";
 import ManageCheckout from "../components/ManageCheckout";
 import { useTranslation } from "react-i18next";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 
 function Detail(){
 
     const navigate = useNavigate();
     const [openCheckout, setOpenCheckout] = useState(false);
+
+    const goBack = () => {
+        navigate(-1);
+    };
 
     function showDialog(open: boolean) {
         setOpenCheckout(open);
@@ -92,6 +97,9 @@ function Detail(){
                      }}
                  >
                      <Toolbar>
+                        <IconButton  id="termsAndConditionsPage-iconButton" onClick={goBack}>
+                            <ArrowBackIosIcon/>
+                        </IconButton>
                          <Typography className="rentBarHeader" sx={{ flexGrow: 0.85 }}>
                              {instrumentsData.title}
                          </Typography>

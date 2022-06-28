@@ -93,7 +93,7 @@ function SignUp() {
     }
   
     function redirectToTerms() {
-      navigate("/AGBs");
+      navigate("/AGB");
     }
     let navigate = useNavigate();
 

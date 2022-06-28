@@ -17,23 +17,6 @@ function Marktplatz() {
     );
     const { t, i18n } = useTranslation();
 
-    console.log(i18n.language);
-
-    var getFilterItems = () => {
-
-        let filterItems: string[] = [];
-        let itemsToFilter = instrumentsData;
-
-        itemsToFilter.forEach((element : any) => {
-            if((!(filterItems.includes(element.category)))){
-                filterItems.push(element.category);
-            }
-        });
-                
-        return filterItems;
-
-    }
-
     if(isLoading) {
         return(
             <p>Loading!</p>
