@@ -8,10 +8,11 @@ import {
     ThemeProvider,
     TextField,
   } from "@mui/material";
-  import React, { useState } from "react";
+  import React, { useEffect, useState } from "react";
   import "./styles/ChatBotDialog.scss";
   import ChatMessage from "./ChatMessage";
 import { useTranslation } from "react-i18next";
+import axios from 'axios'
   
   const welcomeMessage = [
     {
@@ -26,6 +27,15 @@ import { useTranslation } from "react-i18next";
   ];
   
   function ChatBotDialog(props: any) {
+
+    const [ip, setIP] = useState('');
+
+    const getData = async () => {
+      const res = await axios.get('https://geolocation-db.com/json/')
+      console.log(res.data);
+      setIP(res.data.IPv4)
+    }
+
     const { open, handleClose } = props;
     const [userInput, setUserInput] = useState("");
     const [messages, setMessages] = useState(welcomeMessage);
@@ -35,10 +45,18 @@ import { useTranslation } from "react-i18next";
 
     const { t, i18n } = useTranslation();
   
+    useEffect( () => {
+      //passing getData method to the lifecycle method
+      getData()
+  
+    }, [])
+
+    console.log(ip);
+  
     const sendMessageToChatBot = async (userMessage: any) => {
       setLoading(true);
       const messageToFetch = userMessage.replace(" ", "_");
-      const response = await fetch(`${APIUrlChat}/${messageToFetch}`);
+      const response = await fetch(`${APIUrlChat}/${ip}/${messageToFetch}`);
       if (!response.ok) {
         setError(response.status);
         return;

@@ -17,6 +17,7 @@
     "@mui/x-data-grid": "^5.11.1",
     "@react-spring/parallax": "^9.4.5",
     "@types/md5": "^2.3.2",
+    "axios": "^0.27.2",
     "canvas-confetti": "^1.5.1",
     "i18next": "^21.8.9",
     "md5": "^2.3.0",
