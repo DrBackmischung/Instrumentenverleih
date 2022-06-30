@@ -52,6 +52,10 @@ import axios from 'axios'
     }, [])
 
     console.log(ip);
+
+    const msg = (message: String) => {
+      return message.replace(/<Z>/g, "\n");
+    }
   
     const sendMessageToChatBot = async (userMessage: any) => {
       setLoading(true);
@@ -67,7 +71,7 @@ import axios from 'axios'
           setMessages((prevVal) => [
             ...prevVal,
             {
-              message: `${data.content}`,
+              message: msg(data.content),
               align: "Left",
             },
           ]);
