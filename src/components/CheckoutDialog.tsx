@@ -272,13 +272,13 @@ import SignatureCanvas from 'react-signature-canvas'
                         </div>
                       ) : null}
                       {paymentMethod === "paypal" ? (
-                        <p>
+                        <p className="text">
                           Sie werden während des Checkouts zu Paypal
                           weitergeleitet.
                         </p>
                       ) : null}
                       {paymentMethod === "instantBankTransfer" ? (
-                        <p>
+                        <p className="text">
                           Sie werden während des Checkouts zu Klarna
                           weitergeleitet.
                         </p>
