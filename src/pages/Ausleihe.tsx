@@ -74,7 +74,7 @@ function Ausleihe() {
         let items: any = [];
 
         instrumentsData.forEach((element : any) => {
-            if(element.languageCode === i18n.language){
+            if(element.languageCode === i18n.language && element.amount !== 0){
                 items.push(element);
             }
         })
