@@ -26,7 +26,6 @@ function InstrumentenBox(props: any){
                     state: { detail }
                 });
 
-                console.log(detail);
             
             }} 
         >

@@ -39,8 +39,6 @@ function Ausleihe() {
 
     const theme = useTheme();
 
-    console.log(i18n.language);
-
     const isMobile = useMediaQuery(theme.breakpoints.down('xs'), {
         defaultMatches: true
     });
@@ -59,11 +57,15 @@ function Ausleihe() {
         let filterItems: string[] = [];
         let itemsToFilter = instrumentsData;
 
-        itemsToFilter.forEach((element : any) => {
-            if((!(filterItems.includes(element.category)))&&(element.languageCode === i18n.language)){
-                filterItems.push(element.category);
-            }
-        });
+        if(instrumentsData != null && Array.isArray(instrumentsData)){
+            itemsToFilter.forEach((element : any) => {
+                if((!(filterItems.includes(element.category)))&&(element.languageCode === i18n.language)){
+                    filterItems.push(element.category);
+                }
+            });
+        }
+
+        
                 
         return filterItems;
 
@@ -73,11 +75,15 @@ function Ausleihe() {
 
         let items: any = [];
 
-        instrumentsData.forEach((element : any) => {
-            if(element.languageCode === i18n.language && element.amount !== 0){
-                items.push(element);
-            }
-        })
+        if(instrumentsData != null && Array.isArray(instrumentsData)){
+            instrumentsData.forEach((element : any) => {
+                if(element.languageCode === i18n.language && element.amount !== 0){
+                    items.push(element);
+                }
+            })
+        }
+
+        
 
         return items;
 

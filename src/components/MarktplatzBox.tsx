@@ -40,7 +40,6 @@ function MarktplatzBox(props: any){
                 sx={{ marginTop: 1 }}
                 fullWidth
                 onClick={() => {
-                  console.log("BUY BUY BUY")
                 }}
                 variant="contained"
               >

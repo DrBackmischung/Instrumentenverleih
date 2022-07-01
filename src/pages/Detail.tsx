@@ -16,7 +16,7 @@ function Detail(){
     const [openCheckout, setOpenCheckout] = useState(false);
 
     const goBack = () => {
-        navigate(-1);
+        navigate("/ausleihe");
     };
 
     function showDialog(open: boolean) {
@@ -36,7 +36,6 @@ function Detail(){
     var counter = 0;
     var switcher = false;
 
-    console.log("After")
 
     const getCounter = () => {
         let counterCache = counter;

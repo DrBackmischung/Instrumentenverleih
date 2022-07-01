@@ -32,7 +32,6 @@ import axios from 'axios'
 
     const getData = async () => {
       const res = await axios.get('https://geolocation-db.com/json/')
-      console.log(res.data);
       setIP(res.data.IPv4)
     }
 
@@ -50,8 +49,6 @@ import axios from 'axios'
       getData()
   
     }, [])
-
-    console.log(ip);
 
     const msg = (message: String) => {
       return message.replace(/<Z>/g, "\n");
@@ -77,7 +74,6 @@ import axios from 'axios'
           ]);
           break;
         case "LINK":
-          console.log(data.content);
           setMessages((prevVal) => [
             ...prevVal,
             {

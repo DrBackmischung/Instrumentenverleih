@@ -41,7 +41,6 @@ import SignatureCanvas from 'react-signature-canvas'
     const {isLoadingUser, isError, data: user} : any = useQuery("User", () =>
         fetch(apiUrlAll).then((res) => res.json())
     );
-    console.log(user);
     const [paymentMethod, setPaymentMethod] = useState("creditCard");
     const [error, setError] = useState({ isError: false, msg: "No Error" });
     const [isLoading, setIsLoading] = useState(false);

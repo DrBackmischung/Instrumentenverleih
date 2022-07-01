@@ -12,7 +12,6 @@ function NavigationBar() {
   const {t} = useTranslation();
 
   const userID: string = getCookie("userId");
-  console.log(userID);
 
     return(
         <AppBar
