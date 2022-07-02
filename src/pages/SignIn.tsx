@@ -85,9 +85,6 @@ export default function SignIn() {
     return (
         <div 
         >
-            <IconButton id="signInPage-iconButton" sx={{mt: -8, marginLeft: 5, position: 'fixed', zIndex: '100'}} onClick={goBack}>
-                <ArrowBackIosIcon/>
-            </IconButton>
             <Container sx={{mt: 2}}
                 id ="singInPage-container"
                 component="main"

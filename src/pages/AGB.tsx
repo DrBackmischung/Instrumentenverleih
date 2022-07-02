@@ -15,9 +15,6 @@ function AGBs(props: any) {
 
     return (
         <div>
-            <IconButton  id="termsAndConditionsPage-iconButton" sx={{marginTop: -1, marginBottom: -12, marginLeft: 5, position: 'fixed', zIndex: '100'}} onClick={goBack}>
-                <ArrowBackIosIcon/>
-            </IconButton>
             <Container className="wholeContainer" sx={{
                 pb: 6,
                 position: "relative",

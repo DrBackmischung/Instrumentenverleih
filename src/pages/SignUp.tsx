@@ -103,9 +103,6 @@ function SignUp() {
 
     return (
         <div>
-            <IconButton id="userRegistrationPage-iconButton" sx={{ marginTop: 2, marginLeft: 5, position: 'fixed', zIndex: '100'}} onClick={goBack}>
-                <ArrowBackIosIcon/>
-            </IconButton>
             <Container sx={{mt: 2}}>
                 <Box
                     sx={{
