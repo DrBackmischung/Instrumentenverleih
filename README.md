@@ -15,6 +15,8 @@ Projekt für Vorlesung EVS - Webentwicklung
 
 ## Anleitung
 
+Firts time start `npm install`
+
 Start `npm run dev`
 
 Build `npm run build`
